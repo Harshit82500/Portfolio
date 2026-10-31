@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#0F0E0C"/>
+  <rect x="2" y="2" width="60" height="60" fill="none" stroke="rgba(236,231,221,0.2)" stroke-width="1"/>
+  <text x="32" y="44" font-family="'Instrument Serif', serif" font-size="38" font-style="italic" fill="#ECE7DD" text-anchor="middle">H</text>
+  <circle cx="48" cy="22" r="3" fill="#FF4B2B" />
+</svg>
