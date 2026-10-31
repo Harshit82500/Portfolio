@@ -55,8 +55,23 @@ export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ childr
           lerp: 0.08,
           duration: 1.2,
           smoothWheel: true,
-          wheelMultiplier: 0.9,
-          touchMultiplier: 1.5,
+          wheelMultiplier: 0.95,
+          touchMultiplier: 1.2,
+        },
+        scrollCallback: (e: any) => {
+          if (typeof window === 'undefined') return;
+          const velocity = typeof e?.velocity === 'number' ? e.velocity : 0;
+          const progress = typeof e?.progress === 'number' ? e.progress : 0;
+          const direction = typeof e?.direction === 'number' ? e.direction : 0;
+
+          const root = document.documentElement;
+          root.style.setProperty('--scroll-velocity', velocity.toFixed(3));
+          root.style.setProperty('--scroll-progress', progress.toFixed(4));
+          root.style.setProperty('--scroll-direction', direction.toString());
+
+          // Subtle kinetic skew (capped at -2.5deg to +2.5deg for editorial refinement)
+          const clampedSkew = Math.max(-2.5, Math.min(2.5, velocity * 0.035));
+          root.style.setProperty('--scroll-skew', `${clampedSkew.toFixed(3)}deg`);
         },
       });
 
@@ -146,6 +161,13 @@ export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     }
   }, [prefersReducedMotion]);
 
+  // Refresh scroll metrics helper (useful after images/DOM updates)
+  const refreshScroll = useCallback(() => {
+    if (instanceRef.current) {
+      instanceRef.current.resize();
+    }
+  }, []);
+
   return (
     <ScrollContext.Provider
       value={{
@@ -154,6 +176,7 @@ export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         activeSection,
         setActiveSection,
         prefersReducedMotion,
+        refreshScroll,
       }}
     >
       {children}

@@ -13,11 +13,15 @@ export const About: React.FC = () => {
         description="A quantitative mindset anchored in machine learning engineering, structured database modeling, and uncompromising data ethics."
       />
 
-      {/* Asymmetric 12-Column Grid */}
+      {/* Asymmetric 12-Column Grid with Locomotive Sticky Dossier */}
       <SectionReveal className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Narrative Columns (8 cols) */}
         <div className="lg:col-span-8 flex flex-col gap-6 text-[#ECE7DD]/90 font-sans leading-relaxed text-base sm:text-lg">
-          <p className="font-serif italic text-2xl sm:text-3xl text-[#ECE7DD] leading-snug border-l-2 border-[#FF4B2B] pl-6 my-2">
+          <p
+            data-scroll
+            data-scroll-speed="0.3"
+            className="font-serif italic text-2xl sm:text-3xl text-[#ECE7DD] leading-snug border-l-2 border-[#FF4B2B] pl-6 my-2 loco-skew"
+          >
             "Real-world data is inherently noisy and imperfect. The goal isn't to force an illusion of perfection, but to measure and illuminate reality with utmost precision."
           </p>
 
@@ -31,7 +35,7 @@ export const About: React.FC = () => {
 
           {/* Core Working Tenets */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 mt-4 border-t border-[rgba(236,231,221,0.08)]">
-            <div className="p-5 border border-[rgba(236,231,221,0.12)] bg-[#141311]">
+            <div className="p-5 border border-[rgba(236,231,221,0.12)] bg-[#141311] loco-skew">
               <span className="font-mono text-[11px] text-[#FF4B2B] uppercase tracking-widest block mb-2">
                 01 / RIGOR
               </span>
@@ -43,7 +47,7 @@ export const About: React.FC = () => {
               </p>
             </div>
 
-            <div className="p-5 border border-[rgba(236,231,221,0.12)] bg-[#141311]">
+            <div className="p-5 border border-[rgba(236,231,221,0.12)] bg-[#141311] loco-skew">
               <span className="font-mono text-[11px] text-[#FF4B2B] uppercase tracking-widest block mb-2">
                 02 / ARCHITECTURE
               </span>
@@ -55,7 +59,7 @@ export const About: React.FC = () => {
               </p>
             </div>
 
-            <div className="p-5 border border-[rgba(236,231,221,0.12)] bg-[#141311]">
+            <div className="p-5 border border-[rgba(236,231,221,0.12)] bg-[#141311] loco-skew">
               <span className="font-mono text-[11px] text-[#FF4B2B] uppercase tracking-widest block mb-2">
                 03 / ETHICS
               </span>
@@ -69,8 +73,8 @@ export const About: React.FC = () => {
           </div>
         </div>
 
-        {/* Sidebar Dossier (4 cols) */}
-        <div className="lg:col-span-4 flex flex-col gap-6">
+        {/* Sidebar Dossier: Locomotive Sticky Column (4 cols) */}
+        <div className="lg:col-span-4 flex flex-col gap-6 lg:sticky lg:top-28">
           <div className="p-6 border border-[rgba(236,231,221,0.14)] bg-[#141311]">
             <span className="font-mono text-[11px] uppercase tracking-widest text-[#FF4B2B] block mb-4">
               Profile Dossier

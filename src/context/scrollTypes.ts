@@ -8,6 +8,7 @@ export interface ScrollContextValue {
   activeSection: string;
   setActiveSection: (id: string) => void;
   prefersReducedMotion: boolean;
+  refreshScroll: () => void;
 }
 
 export const ScrollContext = createContext<ScrollContextValue>({
@@ -16,6 +17,7 @@ export const ScrollContext = createContext<ScrollContextValue>({
   activeSection: '',
   setActiveSection: () => {},
   prefersReducedMotion: false,
+  refreshScroll: () => {},
 });
 
 export const useScroll = () => useContext(ScrollContext);

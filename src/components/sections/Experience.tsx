@@ -16,13 +16,15 @@ export const Experience: React.FC = () => {
       />
 
       <SectionReveal className="flex flex-col border-t border-[rgba(236,231,221,0.12)]">
-        {experienceData.map((item) => {
+        {experienceData.map((item, idx) => {
           const isPending = item.role.startsWith('[ADD');
 
           return (
             <div
               key={item.id}
-              className="py-10 border-b border-[rgba(236,231,221,0.12)] grid grid-cols-1 lg:grid-cols-12 gap-8 items-start group"
+              data-scroll
+              data-scroll-speed={idx % 2 === 0 ? "0.15" : "-0.15"}
+              className="py-10 border-b border-[rgba(236,231,221,0.12)] grid grid-cols-1 lg:grid-cols-12 gap-8 items-start group loco-skew hover:bg-[#141311]/40 transition-colors duration-300"
             >
               {/* Period & Organization (4 cols) */}
               <div className="lg:col-span-4 flex flex-col gap-2">

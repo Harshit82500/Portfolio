@@ -29,7 +29,19 @@ export const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer className="border-t border-[rgba(236,231,221,0.12)] bg-[#0F0E0C] text-[#8A857B] text-xs font-mono pt-16 pb-12 mt-32">
+    <footer className="border-t border-[rgba(236,231,221,0.12)] bg-[#0F0E0C] text-[#8A857B] text-xs font-mono pt-16 pb-12 mt-32 relative overflow-hidden">
+      {/* Locomotive Grand Curtain Reveal Typography */}
+      <div
+        data-scroll
+        data-scroll-speed="-2"
+        aria-hidden="true"
+        className="w-full overflow-hidden select-none border-b border-[rgba(236,231,221,0.06)] pb-8 mb-12 text-center"
+      >
+        <span className="font-serif italic text-5xl sm:text-7xl lg:text-[9vw] text-[#ECE7DD]/[0.04] tracking-tight leading-none uppercase block">
+          HARSHIT VISHWAKARMA
+        </span>
+      </div>
+
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col gap-12">
         {/* Top Tier: Colophon & Editorial Masthead */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">

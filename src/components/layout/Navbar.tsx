@@ -58,6 +58,11 @@ export const Navbar: React.FC = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0F0E0C]/90 backdrop-blur-md border-b border-[rgba(236,231,221,0.12)] transition-colors duration-300">
+      {/* Locomotive Real-time Scroll Progress Hairline */}
+      <div
+        className="absolute bottom-0 left-0 h-[1.5px] bg-[#FF4B2B] pointer-events-none transition-all duration-75"
+        style={{ width: 'calc(var(--scroll-progress, 0) * 100%)' }}
+      />
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 h-18 flex items-center justify-between">
         {/* Brand Monogram & Name */}
         <div className="flex items-center gap-4">

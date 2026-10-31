@@ -46,6 +46,30 @@ const categories = [
   'Backend & Tools',
 ] as const;
 
+const tickerRow1 = [
+  'Python',
+  'Scikit-Learn',
+  'Pandas',
+  'NumPy',
+  'XGBoost',
+  'DistilBERT',
+  'Jupyter',
+  'C++',
+  'Statistical Modeling',
+];
+
+const tickerRow2 = [
+  'PostgreSQL',
+  'SQLite',
+  'MongoDB',
+  'Alteryx Analytics',
+  'FastAPI',
+  'Flask',
+  'Docker',
+  'Git & GitHub',
+  'Microsoft Power BI',
+];
+
 export const Skills: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
@@ -62,6 +86,39 @@ export const Skills: React.FC = () => {
         headline="Authentic tooling, frameworks & languages."
         description="Structured by domain with official monochrome brand iconography. No fabricated proficiency meters or arbitrary percentage bars."
       />
+
+      {/* Kinetic Velocity Ribbons (Signature Locomotive Effect) */}
+      <div className="my-10 -mx-4 sm:-mx-8 lg:-mx-12 overflow-hidden border-y border-[rgba(236,231,221,0.1)] py-5 bg-[#12110F] flex flex-col gap-3 select-none">
+        {/* Track 1: Left */}
+        <div className="flex overflow-hidden">
+          <div className="animate-loco-marquee-left flex items-center gap-6">
+            {tickerRow1.concat(tickerRow1).concat(tickerRow1).map((item, idx) => (
+              <div
+                key={`r1-${idx}`}
+                className="flex items-center gap-3 px-4 py-2 border border-[rgba(236,231,221,0.1)] bg-[#0F0E0C] text-xs font-mono text-[#ECE7DD] tracking-wider uppercase shrink-0"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF4B2B]" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Track 2: Right */}
+        <div className="flex overflow-hidden">
+          <div className="animate-loco-marquee-right flex items-center gap-6">
+            {tickerRow2.concat(tickerRow2).concat(tickerRow2).map((item, idx) => (
+              <div
+                key={`r2-${idx}`}
+                className="flex items-center gap-3 px-4 py-2 border border-[rgba(236,231,221,0.1)] bg-[#0F0E0C] text-xs font-mono text-[#8A857B] tracking-wider uppercase shrink-0 hover:text-[#ECE7DD]"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#8A857B]" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Category Filter Pills */}
       <div className="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-[rgba(236,231,221,0.08)]">
@@ -80,8 +137,8 @@ export const Skills: React.FC = () => {
         ))}
       </div>
 
-      {/* Skills Grid: Flat, Hairline-Bordered, No Glow */}
-      <SectionReveal className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4">
+      {/* Skills Grid: Flat, Hairline-Bordered, Kinetic Skew */}
+      <SectionReveal className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 loco-skew">
         {filteredSkills.map((skill) => {
           const isHovered = hoveredSkill === skill.name;
           const IconComponent = skill.iconKey ? iconMap[skill.iconKey] : null;

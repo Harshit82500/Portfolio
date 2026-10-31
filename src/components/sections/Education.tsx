@@ -18,7 +18,9 @@ export const Education: React.FC = () => {
         {educationData.map((edu) => (
           <div
             key={edu.id}
-            className="p-8 border border-[rgba(236,231,221,0.12)] bg-[#141311] grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+            data-scroll
+            data-scroll-speed="0.1"
+            className="p-8 border border-[rgba(236,231,221,0.12)] bg-[#141311] grid grid-cols-1 lg:grid-cols-12 gap-8 items-start loco-skew"
           >
             {/* Degree & Institution (5 cols) */}
             <div className="lg:col-span-5 flex flex-col gap-2">

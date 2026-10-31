@@ -47,8 +47,8 @@ export const Projects: React.FC = () => {
         ))}
       </div>
 
-      {/* Large Image-Led Project Rows / Panels */}
-      <SectionReveal className="flex flex-col gap-12 lg:gap-16">
+      {/* Locomotive Sticky Stacking Deck */}
+      <SectionReveal className="relative flex flex-col pb-16">
         {filteredProjects.map((project, index) => {
           const hasImageError = imageErrors[project.id] || !project.image;
           const isInProgress = project.status === 'In Progress';
@@ -56,9 +56,23 @@ export const Projects: React.FC = () => {
           return (
             <article
               key={project.id}
-              className="border border-[rgba(236,231,221,0.12)] bg-[#141311] hover:border-[rgba(236,231,221,0.28)] transition-all duration-300 p-6 sm:p-8 lg:p-12"
+              style={{
+                top: `calc(5.5rem + ${index * 1.5}rem)`,
+                zIndex: index + 10,
+              }}
+              className="loco-deck-card loco-skew border border-[rgba(236,231,221,0.14)] bg-[#141311] hover:border-[rgba(236,231,221,0.32)] shadow-[0_20px_50px_rgba(0,0,0,0.85)] p-6 sm:p-8 lg:p-12 mb-12 relative overflow-hidden group"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+              {/* Locomotive Parallax Background Index */}
+              <span
+                data-scroll
+                data-scroll-speed="-0.5"
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-6 -right-4 font-serif italic text-8xl sm:text-9xl text-[#ECE7DD]/[0.03] select-none z-0"
+              >
+                0{index + 1}
+              </span>
+
+              <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                 {/* Left Side: Editorial Typography & Case Study Content (7 cols) */}
                 <div className="lg:col-span-7 flex flex-col justify-between h-full">
                   <div>
@@ -84,9 +98,9 @@ export const Projects: React.FC = () => {
                     {/* Project Title */}
                     <Link
                       to={`/project/${project.id}`}
-                      className="group inline-block focus-visible:outline-none"
+                      className="group/link inline-block focus-visible:outline-none"
                     >
-                      <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#ECE7DD] tracking-tight group-hover:text-[#FF4B2B] transition-colors duration-200">
+                      <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#ECE7DD] tracking-tight group-hover/link:text-[#FF4B2B] transition-colors duration-200">
                         {project.title}
                       </h3>
                     </Link>
@@ -186,19 +200,23 @@ export const Projects: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Right Side: Image Panel or Clean Typographic Fallback (5 cols) */}
+                {/* Right Side: Image Panel with Locomotive Parallax Window */}
                 <div className="lg:col-span-5 flex flex-col justify-center">
                   <div className="w-full aspect-[16/10] border border-[rgba(236,231,221,0.12)] bg-[#0F0E0C] overflow-hidden relative group/img">
                     {!hasImageError ? (
-                      <img
-                        src={project.image}
-                        alt={`${project.title} screenshot`}
-                        loading="lazy"
-                        width={600}
-                        height={375}
-                        onError={() => handleImageError(project.id)}
-                        className="w-full h-full object-cover filter grayscale contrast-115 group-hover/img:grayscale-0 group-hover/img:scale-105 transition-all duration-700 ease-out"
-                      />
+                      <div className="w-full h-full overflow-hidden">
+                        <img
+                          data-scroll
+                          data-scroll-speed="-0.3"
+                          src={project.image}
+                          alt={`${project.title} screenshot`}
+                          loading="lazy"
+                          width={600}
+                          height={375}
+                          onError={() => handleImageError(project.id)}
+                          className="w-full h-full object-cover filter grayscale contrast-115 group-hover/img:grayscale-0 group-hover/img:scale-105 transition-all duration-700 ease-out"
+                        />
+                      </div>
                     ) : (
                       /* Clean Typographic Minimalist Editorial Fallback */
                       <div className="w-full h-full p-8 flex flex-col justify-between bg-[#11100E] border border-[rgba(236,231,221,0.06)] select-none">

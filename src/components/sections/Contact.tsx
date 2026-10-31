@@ -128,8 +128,8 @@ export const Contact: React.FC = () => {
       />
 
       <SectionReveal className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        {/* Left Dossier & Direct Channels (5 cols) */}
-        <div className="lg:col-span-5 flex flex-col justify-between">
+        {/* Left Dossier & Direct Channels (5 cols, Locomotive Sticky) */}
+        <div className="lg:col-span-5 flex flex-col justify-between lg:sticky lg:top-28">
           <div>
             <span className="font-mono text-xs uppercase tracking-widest text-[#FF4B2B] block mb-4">
               Direct Channels

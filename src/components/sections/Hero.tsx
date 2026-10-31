@@ -14,9 +14,19 @@ export const Hero: React.FC = () => {
     <section
       id="hero"
       aria-label="Hero Overview"
-      className="min-h-[85vh] flex flex-col justify-between pt-12 pb-16 border-b border-[rgba(236,231,221,0.12)]"
+      className="relative min-h-[85vh] flex flex-col justify-between pt-12 pb-16 border-b border-[rgba(236,231,221,0.12)] overflow-hidden"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      {/* Locomotive Parallax Background Ghost Monogram */}
+      <div
+        data-scroll
+        data-scroll-speed="-2.5"
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-12 -right-10 font-serif italic text-[22vw] text-[#ECE7DD]/[0.025] select-none leading-none z-0 select-none"
+      >
+        HV
+      </div>
+
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column: Role, Headline, Description, CTAs */}
         <div className="lg:col-span-8 flex flex-col">
           {/* Static Role Line & Availability Indicator */}
@@ -45,11 +55,11 @@ export const Hero: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Large Serif Headline with Text Mask Reveal */}
+          {/* Large Serif Headline with Kinetic Skew & Multi-Speed Parallax */}
           <h1
             data-scroll
-            data-scroll-speed="0.1"
-            className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] text-[#ECE7DD] tracking-tight leading-[1.03] max-w-4xl"
+            data-scroll-speed="0.6"
+            className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] text-[#ECE7DD] tracking-tight leading-[1.03] max-w-4xl loco-skew"
           >
             <TextReveal as="span" delay={0.1}>
               {personalInfo.heroHeadline}
@@ -94,15 +104,15 @@ export const Hero: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Right Column: Editorial Photo Frame or Monogram Fallback */}
+        {/* Right Column: Editorial Photo Frame with Opposite Parallax Depth */}
         <div className="lg:col-span-4 flex flex-col items-start lg:items-end">
           <motion.div
             initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
             data-scroll
-            data-scroll-speed="-0.1"
-            className="w-full max-w-[320px] aspect-[4/5] border border-[rgba(236,231,221,0.14)] bg-[#141311] p-3 relative group"
+            data-scroll-speed="-0.6"
+            className="w-full max-w-[320px] aspect-[4/5] border border-[rgba(236,231,221,0.14)] bg-[#141311] p-3 relative group loco-skew"
           >
             <div className="w-full h-full border border-[rgba(236,231,221,0.08)] bg-[#0F0E0C] overflow-hidden relative flex flex-col items-center justify-center">
               {!imageError ? (
@@ -146,8 +156,10 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Hero Footnote Bar */}
+      {/* Hero Footnote Bar with Locomotive Parallax Speed */}
       <motion.div
+        data-scroll
+        data-scroll-speed="1.2"
         initial={prefersReducedMotion ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
@@ -157,10 +169,12 @@ export const Hero: React.FC = () => {
           <span>00 / INTRO</span>
           <span className="hidden sm:inline text-[rgba(236,231,221,0.2)]">•</span>
           <span className="hidden sm:inline">DATA ANALYST & APPLIED ML</span>
+          <span className="hidden md:inline text-[rgba(236,231,221,0.2)]">•</span>
+          <span className="hidden md:inline text-[#FF4B2B]/90">ENGINE: LOCOMOTIVE V5</span>
         </div>
         <div className="flex items-center gap-2">
           <span>SCROLL FOR ANALYSIS</span>
-          <span className="text-[#FF4B2B]">↓</span>
+          <span className="text-[#FF4B2B] animate-bounce">↓</span>
         </div>
       </motion.div>
     </section>
