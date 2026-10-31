@@ -1,8 +1,7 @@
 /**
  * Education Data
  * 
- * Strict honesty rules:
- * - Only verified academic information. Missing details marked with [ADD: ...].
+ * Verified academic credentials from Medi-Caps University, Indore.
  */
 
 export interface EducationItem {
@@ -10,6 +9,7 @@ export interface EducationItem {
   degree: string;
   fieldOfStudy: string;
   institution: string;
+  location: string;
   period: string;
   details?: string[];
   metricsPlaceholder?: string;
@@ -19,13 +19,14 @@ export const educationData: EducationItem[] = [
   {
     id: 'edu-1',
     degree: 'Bachelor of Technology (B.Tech)',
-    fieldOfStudy: 'Computer Science & Engineering / Data Science',
-    institution: '[ADD: College or University Name]',
-    period: '[ADD: Graduation Year, e.g. 2023 — 2027]',
+    fieldOfStudy: 'Computer Science & Engineering',
+    institution: 'Medi-Caps University',
+    location: 'Indore, Madhya Pradesh, India',
+    period: '2023 — 2027',
     details: [
-      'Core Coursework: Data Structures & Algorithms, Database Management Systems (SQL), Operating Systems, Machine Learning, Compiler Design.',
-      'Practical Laboratory Work: High-performance algorithm analysis, exploratory data science lab projects, and applied software engineering.',
+      'Core Engineering Disciplines: Data Structures & Algorithms, Database Management Systems (SQL), Operating Systems, Machine Learning, Compiler Design, Design & Analysis of Algorithms.',
+      'Practical Laboratory Work: High-performance algorithm analysis, exploratory data science lab projects, and statistical modeling.',
+      'Specialized Practical Training: Completed intensive Summer Internship on Alteryx data analytics and automated workflow modeling.',
     ],
-    metricsPlaceholder: '[ADD: CGPA or Percentage after confirmed]',
   },
 ];

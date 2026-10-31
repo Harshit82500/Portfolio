@@ -94,11 +94,16 @@ export const Contact: React.FC = () => {
         templateId,
         {
           from_name: formData.name,
+          name: formData.name,
           from_email: formData.email,
+          email: formData.email,
+          reply_to: formData.email,
           subject: formData.subject || 'Portfolio Inquiry',
           message: formData.message,
         },
-        publicKey
+        {
+          publicKey: publicKey,
+        }
       );
 
       setStatus('success');
@@ -107,8 +112,9 @@ export const Contact: React.FC = () => {
       setFormData({ name: '', email: '', subject: '', message: '', honeypot: '' });
     } catch (err: any) {
       console.error('EmailJS submission error:', err);
+      const errorDetail = err?.text || err?.message || 'Service unreachable';
       setStatus('error');
-      setErrorMessage('Failed to send transmission. Please email directly or try again later.');
+      setErrorMessage(`Failed to send transmission (${errorDetail}). Please check EmailJS keys and allowed domains, or email directly.`);
     }
   };
 

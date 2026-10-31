@@ -2,8 +2,8 @@
  * Experience Data
  * 
  * Strict honesty rules:
- * - No fabricated companies, titles, or metrics.
- * - Missing items or pending internships marked with [ADD: ...].
+ * - Verified internship at Medi-Caps University on Alteryx.
+ * - Academic & open-source machine learning engineering.
  */
 
 export interface ExperienceItem {
@@ -19,30 +19,31 @@ export interface ExperienceItem {
 
 export const experienceData: ExperienceItem[] = [
   {
-    id: 'exp-1',
+    id: 'exp-alteryx',
+    role: 'Summer Intern — Data Analytics (Alteryx)',
+    organization: 'Medi-Caps University',
+    location: 'Indore, India',
+    period: 'June 15, 2026 — July 10, 2026',
+    type: 'Professional',
+    highlights: [
+      'Engineered automated ETL pipelines and data preparation workflows using Alteryx Designer for high-dimensional institutional datasets.',
+      'Constructed data cleansing and spatial aggregation workflows to eliminate redundant records and accelerate downstream analytics.',
+      'Synthesized multi-source reporting extracts into structured database schemas for automated exploratory analysis.',
+    ],
+    techStack: ['Alteryx Designer', 'ETL Pipelines', 'SQL', 'Data Cleansing', 'Workflow Automation'],
+  },
+  {
+    id: 'exp-academic',
     role: 'Machine Learning & Data Analyst Developer',
     organization: 'Academic & Open-Source Projects',
-    location: 'India',
+    location: 'Indore, India',
     period: '2025 — Present',
     type: 'Academic',
     highlights: [
-      'Engineered machine learning triage systems using calibrated XGBoost and Scikit-learn on multi-dimensional telemetry datasets.',
-      'Developed real-time NLP classification pipelines using fine-tuned DistilBERT models with REST API microservices.',
-      'Constructed exploratory data analysis pipelines with Pandas, NumPy, and SQL for behavioral signal diagnostics.',
+      'Engineered machine learning triage systems using calibrated XGBoost and Scikit-learn on multi-dimensional telemetry datasets (87.5% Accuracy, 0.883 ROC-AUC).',
+      'Developed real-time browser NLP classification pipelines with fine-tuned DistilBERT models and high-throughput FastAPI REST microservices.',
+      'Constructed exploratory data analysis pipelines with Pandas, NumPy, and SQL for behavioral signal diagnostics and statistical hypothesis testing.',
     ],
-    techStack: ['Python', 'SQL', 'Scikit-learn', 'Pandas', 'FastAPI', 'Git'],
-  },
-  {
-    id: 'exp-2',
-    role: '[ADD: Internship / Professional Role Title]',
-    organization: '[ADD: Company or Organization Name]',
-    location: '[ADD: Location / Remote]',
-    period: '[ADD: Period, e.g. Summer 2026]',
-    type: 'Professional',
-    highlights: [
-      '[ADD: Key contribution or project responsibility after you provide it]',
-      '[ADD: Second verified accomplishment without fabricated figures]',
-    ],
-    techStack: ['[ADD: Primary tool/language]'],
+    techStack: ['Python', 'SQL', 'Scikit-learn', 'Pandas', 'FastAPI', 'XGBoost', 'Git'],
   },
 ];
