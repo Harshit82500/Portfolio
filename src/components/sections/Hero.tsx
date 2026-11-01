@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { ArrowUpRight, Mail } from 'lucide-react';
 import { SiGithub } from '@icons-pack/react-simple-icons';
@@ -8,15 +8,7 @@ import { useScroll } from '../../context/scrollTypes';
 
 export const Hero: React.FC = () => {
   const { scrollTo, prefersReducedMotion } = useScroll();
-  const [cutoutExists, setCutoutExists] = useState<boolean | null>(null);
-
-  // Probe availability of transparent portrait cutout
-  useEffect(() => {
-    const img = new Image();
-    img.src = '/images/harshit-cutout.png';
-    img.onload = () => setCutoutExists(true);
-    img.onerror = () => setCutoutExists(false);
-  }, []);
+  const [cutoutFailed, setCutoutFailed] = useState(false);
 
   return (
     <section
@@ -60,7 +52,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.9, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="portrait-container relative portrait-fade-mask w-56 sm:w-68 lg:w-80 cursor-pointer"
           >
-            {cutoutExists === true ? (
+            {!cutoutFailed ? (
               <div className="relative w-full aspect-[4/5]">
                 {/* Bottom Layer: Static Monochrome Grayscale */}
                 <img
@@ -71,6 +63,7 @@ export const Hero: React.FC = () => {
                   className="w-full h-full object-contain select-none pointer-events-none filter grayscale"
                   loading="eager"
                   decoding="async"
+                  onError={() => setCutoutFailed(true)}
                 />
 
                 {/* Top Layer: Authentic Color version, fades in on hover (always full opacity on touch) */}
@@ -84,7 +77,7 @@ export const Hero: React.FC = () => {
                   decoding="async"
                 />
               </div>
-            ) : cutoutExists === false ? (
+            ) : (
               /* Clearly labeled placeholder for transparent cut-out */
               <div className="w-56 sm:w-68 lg:w-80 aspect-[4/5] rounded-2xl border-2 border-dashed border-ink/20 bg-paper-raised/90 flex flex-col items-center justify-center p-6 text-center select-none shadow-sm">
                 <div className="w-14 h-14 rounded-full bg-ink/10 flex items-center justify-center mb-3">
@@ -102,9 +95,6 @@ export const Hero: React.FC = () => {
                   </code>
                 </span>
               </div>
-            ) : (
-              /* Preserved dimensional aspect ratio during initial probe */
-              <div className="w-56 sm:w-68 lg:w-80 aspect-[4/5]" />
             )}
           </motion.div>
         </div>
