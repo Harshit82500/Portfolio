@@ -153,7 +153,7 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="order-4 md:order-4 md:col-span-4 w-full flex flex-col gap-2.5 items-stretch md:items-end mt-6 md:mt-0 z-20"
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60 mb-1 self-start md:self-end">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-ink/75 mb-1 self-start md:self-end">
             Connect &amp; Telemetry
           </span>
 
@@ -170,7 +170,7 @@ export const Hero: React.FC = () => {
             </div>
             <ArrowUpRight
               size={13}
-              className="text-ink/60 group-hover:text-paper transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              className="text-ink/75 group-hover:text-paper transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
           </a>
 
@@ -187,7 +187,7 @@ export const Hero: React.FC = () => {
             </div>
             <ArrowUpRight
               size={13}
-              className="text-ink/60 group-hover:text-paper transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              className="text-ink/75 group-hover:text-paper transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
           </a>
 
@@ -202,7 +202,7 @@ export const Hero: React.FC = () => {
             </div>
             <ArrowUpRight
               size={13}
-              className="text-ink/60 group-hover:text-paper transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              className="text-ink/75 group-hover:text-paper transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
           </a>
         </motion.div>

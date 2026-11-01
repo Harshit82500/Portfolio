@@ -22,7 +22,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 }) => {
   const borderColor = dark ? 'border-border-dark' : 'border-border-light';
   const labelColor = dark ? 'text-gold' : 'text-ink';
-  const descColor = dark ? 'text-muted-dark' : 'text-ink/65';
+  const descColor = dark ? 'text-muted-dark' : 'text-ink/80';
   const headingColor = dark ? 'text-paper' : 'text-ink';
   const watermarkColor = dark ? 'text-white/[0.03]' : 'text-ink/[0.035]';
 

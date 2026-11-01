@@ -57,7 +57,7 @@ export const Projects: React.FC = () => {
               key={tab}
               onClick={() => setActiveFilter(tab)}
               className={`relative py-2 transition-colors duration-200 cursor-pointer ${
-                isActive ? 'text-ink' : 'text-ink/50 hover:text-ink'
+                isActive ? 'text-ink' : 'text-ink/75 hover:text-ink'
               }`}
             >
               <span>{tab}</span>
@@ -104,7 +104,7 @@ export const Projects: React.FC = () => {
                     ) : (
                       /* Clean Typographic Minimalist Placeholder */
                       <div className="w-full h-full p-6 flex flex-col justify-between bg-paper-raised select-none text-ink">
-                        <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-ink/60">
+                        <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-ink/75">
                           <span>CASE ARCHIVE 0{index + 1}</span>
                           <span className="font-semibold text-ink">SYS-{project.id.slice(0, 3).toUpperCase()}</span>
                         </div>
@@ -113,12 +113,12 @@ export const Projects: React.FC = () => {
                           <span className="font-sans font-bold text-2xl sm:text-3xl tracking-tight text-ink">
                             {project.title}
                           </span>
-                          <span className="font-mono text-xs text-ink/65 mt-1 uppercase">
+                          <span className="font-mono text-xs text-ink/75 mt-1 uppercase">
                             {project.category}
                           </span>
                         </div>
 
-                        <div className="flex items-center justify-between text-[10px] font-mono text-ink/50 border-t border-ink/10 pt-3">
+                        <div className="flex items-center justify-between text-[10px] font-mono text-ink/75 border-t border-ink/10 pt-3">
                           <span>SCREENSHOT ARCHIVE</span>
                           <span>{project.dateRange}</span>
                         </div>
@@ -139,7 +139,7 @@ export const Projects: React.FC = () => {
                   {/* Title and Category Header */}
                   <div className="flex items-start justify-between gap-4 mb-2">
                     <div>
-                      <span className="font-mono text-[11px] uppercase tracking-wider text-ink/60 block mb-1">
+                      <span className="font-mono text-[11px] uppercase tracking-wider text-ink/75 block mb-1">
                         {project.category}
                       </span>
                       <h3 className="font-sans font-bold text-xl sm:text-2xl text-ink transition-colors duration-200">
@@ -153,7 +153,7 @@ export const Projects: React.FC = () => {
                   </div>
 
                   {/* Short Summary */}
-                  <p className="font-sans text-sm text-ink/70 leading-relaxed line-clamp-3 mb-6 mt-1 flex-1">
+                  <p className="font-sans text-sm text-ink/80 leading-relaxed line-clamp-3 mb-6 mt-1 flex-1">
                     {project.summary}
                   </p>
 
@@ -168,7 +168,7 @@ export const Projects: React.FC = () => {
                       </span>
                     ))}
                     {project.techStack.length > 5 && (
-                      <span className="text-[10px] font-mono text-ink/50 px-1">
+                      <span className="text-[10px] font-mono text-ink/75 px-1">
                         +{project.techStack.length - 5}
                       </span>
                     )}

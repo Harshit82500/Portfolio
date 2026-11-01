@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
             <p className="text-sm font-sans text-ink/70 leading-relaxed max-w-sm">
               Designing actionable quantitative intelligence through rigorous exploratory analysis, predictive modeling, and verified metrics.
             </p>
-            <div className="pt-2 font-mono text-xs text-ink/50">
+            <div className="pt-2 font-mono text-xs text-ink/75">
               <span>Local Station Time: </span>
               <span className="text-ink font-medium">{timeStr ? `${timeStr} IST` : 'CALCULATING...'}</span>
             </div>
@@ -59,7 +59,7 @@ export const Footer: React.FC = () => {
 
           {/* Nav Links (3 cols) */}
           <div className="md:col-span-3 flex flex-col gap-3">
-            <span className="font-mono text-xs uppercase tracking-widest text-ink/50 font-semibold">
+            <span className="font-mono text-xs uppercase tracking-widest text-ink/75 font-semibold">
               Navigation
             </span>
             <div className="flex flex-col gap-2 font-sans text-sm font-medium text-ink">
@@ -105,7 +105,7 @@ export const Footer: React.FC = () => {
           {/* Socials & Back to Top (4 cols) */}
           <div className="md:col-span-4 flex flex-col justify-between h-full gap-6 md:items-end">
             <div className="flex flex-col md:items-end gap-2.5">
-              <span className="font-mono text-xs uppercase tracking-widest text-ink/50 font-semibold">
+              <span className="font-mono text-xs uppercase tracking-widest text-ink/75 font-semibold">
                 Social Telemetry
               </span>
               <div className="flex flex-col md:items-end gap-2 text-sm font-sans font-medium text-ink">
@@ -150,7 +150,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Tier: Copyright */}
-        <div className="pt-8 border-t border-border-light flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-ink/60">
+        <div className="pt-8 border-t border-border-light flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-ink/75">
           <div>
             © 2026 {personalInfo.fullName}. All rights reserved.
           </div>

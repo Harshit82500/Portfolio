@@ -89,7 +89,7 @@ export const Navbar: React.FC = () => {
           <button
             onClick={handleLogoClick}
             className="flex items-center gap-2 group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-full px-1 py-0.5"
-            aria-label="Scroll to top"
+            aria-label="Harshit — Scroll to top"
           >
             <span className="font-sans font-bold text-lg sm:text-xl tracking-tight text-ink group-hover:opacity-85 transition-opacity duration-200">
               {personalInfo.name}
