@@ -47,10 +47,10 @@ export const WhatIDo: React.FC = () => {
                 }`}
               >
                 <div className="flex items-baseline gap-4 sm:gap-8">
-                  <span className="font-mono text-xs sm:text-sm font-semibold text-ink/40 group-hover:text-gold transition-colors">
+                  <span className="font-mono text-xs sm:text-sm font-semibold text-ink/40 group-hover:text-ink transition-colors">
                     {item.number}
                   </span>
-                  <h3 className="font-sans font-extrabold text-3xl sm:text-5xl lg:text-6xl text-ink tracking-tight uppercase group-hover:text-gold transition-colors duration-200">
+                  <h3 className="font-sans font-extrabold text-3xl sm:text-5xl lg:text-6xl text-ink tracking-tight uppercase transition-all duration-200 group-hover:translate-x-1">
                     {item.title}
                   </h3>
                 </div>
@@ -63,7 +63,7 @@ export const WhatIDo: React.FC = () => {
                     className={`w-10 h-10 rounded-full border border-border-light flex items-center justify-center transition-all duration-300 ${
                       isExpanded
                         ? 'bg-ink text-paper rotate-90'
-                        : 'group-hover:border-ink group-hover:bg-ink group-hover:text-paper group-hover:rotate-45'
+                        : 'group-hover:border-ink group-hover:bg-gold group-hover:text-ink group-hover:rotate-45'
                     }`}
                   >
                     <ArrowUpRight size={18} />

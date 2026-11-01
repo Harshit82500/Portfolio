@@ -83,7 +83,7 @@ export const CustomCursor: React.FC = () => {
           y: pos.y,
           width: isHovered ? 48 : 30,
           height: isHovered ? 48 : 30,
-          borderColor: isHovered ? '#E9C46A' : 'rgba(35, 44, 40, 0.22)',
+          borderColor: isHovered ? '#E9C46A' : 'rgba(31, 40, 36, 0.22)',
           backgroundColor: isHovered ? 'rgba(233, 196, 106, 0.12)' : 'transparent',
         }}
         transition={{

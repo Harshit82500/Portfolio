@@ -65,37 +65,37 @@ export const Footer: React.FC = () => {
             <div className="flex flex-col gap-2 font-sans text-sm font-medium text-ink">
               <button
                 onClick={() => scrollTo('#projects')}
-                className="text-left hover:text-gold transition-colors cursor-pointer"
+                className="text-left hover:underline decoration-gold decoration-2 transition-all cursor-pointer"
               >
                 Selected Work
               </button>
               <button
                 onClick={() => scrollTo('#what-i-do')}
-                className="text-left hover:text-gold transition-colors cursor-pointer"
+                className="text-left hover:underline decoration-gold decoration-2 transition-all cursor-pointer"
               >
                 What I Do
               </button>
               <button
                 onClick={() => scrollTo('#experience')}
-                className="text-left hover:text-gold transition-colors cursor-pointer"
+                className="text-left hover:underline decoration-gold decoration-2 transition-all cursor-pointer"
               >
                 Trajectory &amp; Experience
               </button>
               <button
                 onClick={() => scrollTo('#skills')}
-                className="text-left hover:text-gold transition-colors cursor-pointer"
+                className="text-left hover:underline decoration-gold decoration-2 transition-all cursor-pointer"
               >
                 Skills &amp; Credentials
               </button>
               <button
                 onClick={() => scrollTo('#education')}
-                className="text-left hover:text-gold transition-colors cursor-pointer"
+                className="text-left hover:underline decoration-gold decoration-2 transition-all cursor-pointer"
               >
                 Education
               </button>
               <button
                 onClick={() => scrollTo('#contact')}
-                className="text-left hover:text-gold transition-colors cursor-pointer"
+                className="text-left hover:underline decoration-gold decoration-2 transition-all cursor-pointer"
               >
                 Contact
               </button>
@@ -113,7 +113,7 @@ export const Footer: React.FC = () => {
                   href={personalInfo.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gold transition-colors flex items-center gap-1.5"
+                  className="hover:underline decoration-gold decoration-2 transition-all flex items-center gap-1.5"
                 >
                   <SiGithub size={13} color="currentColor" />
                   <span>GitHub</span>
@@ -123,7 +123,7 @@ export const Footer: React.FC = () => {
                   href={personalInfo.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gold transition-colors flex items-center gap-1.5"
+                  className="hover:underline decoration-gold decoration-2 transition-all flex items-center gap-1.5"
                 >
                   <DeviconLinkedIn className="w-3.5 h-3.5 fill-current" />
                   <span>LinkedIn</span>
@@ -131,7 +131,7 @@ export const Footer: React.FC = () => {
                 </a>
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="hover:text-gold transition-colors flex items-center gap-1.5"
+                  className="hover:underline decoration-gold decoration-2 transition-all flex items-center gap-1.5"
                 >
                   <span>Email Transmission</span>
                   <ArrowUpRight size={12} />

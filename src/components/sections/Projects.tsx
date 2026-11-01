@@ -92,7 +92,7 @@ export const Projects: React.FC = () => {
               >
                 <Link to={`/project/${project.id}`} className="flex flex-col h-full focus:outline-none">
                   {/* Top Screenshot or Clean Typographic Placeholder */}
-                  <div className="w-full aspect-[16/10] rounded-xl overflow-hidden border border-border-light bg-[#E8E4D5] relative mb-6">
+                  <div className="w-full aspect-[16/10] rounded-xl overflow-hidden border border-border-light bg-paper-raised relative mb-6">
                     {!hasImageError ? (
                       <img
                         src={project.image}
@@ -103,7 +103,7 @@ export const Projects: React.FC = () => {
                       />
                     ) : (
                       /* Clean Typographic Minimalist Placeholder */
-                      <div className="w-full h-full p-6 flex flex-col justify-between bg-[#EAE6D7] select-none text-ink">
+                      <div className="w-full h-full p-6 flex flex-col justify-between bg-paper-raised select-none text-ink">
                         <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-ink/60">
                           <span>CASE ARCHIVE 0{index + 1}</span>
                           <span className="font-semibold text-ink">SYS-{project.id.slice(0, 3).toUpperCase()}</span>
@@ -142,12 +142,12 @@ export const Projects: React.FC = () => {
                       <span className="font-mono text-[11px] uppercase tracking-wider text-ink/60 block mb-1">
                         {project.category}
                       </span>
-                      <h3 className="font-sans font-bold text-xl sm:text-2xl text-ink group-hover:text-gold transition-colors duration-200">
+                      <h3 className="font-sans font-bold text-xl sm:text-2xl text-ink transition-colors duration-200">
                         {project.title}
                       </h3>
                     </div>
 
-                    <div className="p-2 rounded-full border border-border-light group-hover:border-ink group-hover:bg-ink group-hover:text-paper transition-all duration-200 shrink-0">
+                    <div className="p-2 rounded-full border border-border-light group-hover:border-ink group-hover:bg-gold group-hover:text-ink transition-all duration-200 shrink-0">
                       <ArrowUpRight size={16} />
                     </div>
                   </div>

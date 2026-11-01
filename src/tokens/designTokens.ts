@@ -1,39 +1,48 @@
+import { siteConfig } from '../config/site';
+
 /**
- * Typography-Led Minimalist Design Tokens
+ * Typography-Led Minimalist Design Tokens (Softer Palette)
  * 
- * Strict design system constants matching the typography-led aesthetic:
- * - Paper light background (#EFEBDD) with dark ink typography (#232C28)
- * - Full dark ink experience section (#232C28)
- * - Single gold accent (#E9C46A) used with restraint
- * - Clean geometric grotesque typography (Plus Jakarta Sans) with tight tracking
- * - Consistent custom cubic-bezier easing for all transforms and opacities
+ * Strict design system constants matching the softer, low eye-strain aesthetic:
+ * - paper (page background): #D8D5C4
+ * - paper-raised (cards, pills, inputs): #E3E0D0
+ * - ink (text and dark buttons): #1F2824
+ * - ink-deep (Experience section background): #1C2421
+ * - slate: #2B3631
+ * - muted on light: rgba(31,40,36,0.72) (exceeds 4.5:1 WCAG AA)
+ * - muted on dark: #A5B0A8
+ * - border on light: rgba(31,40,36,0.16)
+ * - gold: #E9C46A (fills, dots, underlines, hover backgrounds only)
  */
 
 export const tokens = {
+  site: siteConfig,
   colors: {
-    // Primary palette (Dymas / Editorial light system)
-    paper: '#EFEBDD',
-    ink: '#232C28',
+    // Primary palette
+    paper: '#D8D5C4',
+    paperRaised: '#E3E0D0',
+    ink: '#1F2824',
+    inkDeep: '#1C2421',
     slate: '#2B3631',
     gold: '#E9C46A',
     goldHover: '#F0D38D',
     mutedDark: '#A5B0A8',
-    mutedLight: 'rgba(35, 44, 40, 0.62)',
+    mutedLight: 'rgba(31, 40, 36, 0.72)',
 
     // Hairlines
-    borderLight: 'rgba(35, 44, 40, 0.12)',
-    borderLightHover: 'rgba(35, 44, 40, 0.28)',
-    borderDark: 'rgba(239, 235, 221, 0.14)',
-    borderDarkHover: 'rgba(239, 235, 221, 0.28)',
+    borderLight: 'rgba(31, 40, 36, 0.16)',
+    borderLightHover: 'rgba(31, 40, 36, 0.30)',
+    borderDark: 'rgba(216, 213, 196, 0.16)',
+    borderDarkHover: 'rgba(216, 213, 196, 0.32)',
 
     // Semantic tokens
-    background: '#EFEBDD',
-    surface: '#F6F3EB',
-    surfaceDeep: '#232C28',
-    text: '#232C28',
-    textMuted: 'rgba(35, 44, 40, 0.62)',
-    textDim: 'rgba(35, 44, 40, 0.45)',
-    border: 'rgba(35, 44, 40, 0.12)',
+    background: '#D8D5C4',
+    surface: '#E3E0D0',
+    surfaceDeep: '#1C2421',
+    text: '#1F2824',
+    textMuted: 'rgba(31, 40, 36, 0.72)',
+    textDim: 'rgba(31, 40, 36, 0.50)',
+    border: 'rgba(31, 40, 36, 0.16)',
     accent: '#E9C46A',
     accentHover: '#F0D38D',
     accentMuted: 'rgba(233, 196, 106, 0.15)',
@@ -68,7 +77,7 @@ export const tokens = {
   layout: {
     gridColumns: 12,
     maxWidth: '1440px',
-    hairline: '1px solid rgba(35, 44, 40, 0.12)',
+    hairline: '1px solid rgba(31, 40, 36, 0.16)',
   },
 
   motion: {

@@ -22,7 +22,7 @@ export const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
         animate={{ scaleX: 0, originX: 1 }}
         exit={{ scaleX: 1, originX: 0 }}
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed inset-0 z-[100] bg-[#E8E4D5] pointer-events-none"
+        className="fixed inset-0 z-[100] bg-paper pointer-events-none"
       />
 
       <motion.div

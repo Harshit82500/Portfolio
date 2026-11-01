@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#EFEBDD" />
-  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="rgba(35,44,40,0.12)" stroke-width="1" />
+  <rect width="1200" height="630" fill="#D8D5C4" />
+  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="rgba(31,40,36,0.16)" stroke-width="1" />
   
-  <text x="90" y="160" font-family="'JetBrains Mono', monospace" font-size="15" letter-spacing="4" fill="#232C28" font-weight="600">00 / PORTFOLIO  •  DATA ANALYST &amp; DATA SCIENTIST (ASPIRING)</text>
+  <text x="90" y="160" font-family="'JetBrains Mono', monospace" font-size="15" letter-spacing="4" fill="#1F2824" font-weight="600">00 / PORTFOLIO  •  DATA ANALYST &amp; DATA SCIENTIST (ASPIRING)</text>
   
-  <text x="90" y="270" font-family="'Plus Jakarta Sans', sans-serif" font-size="76" font-weight="800" letter-spacing="-2" fill="#232C28">Harshit Vishwakarma</text>
+  <text x="90" y="270" font-family="'Plus Jakarta Sans', sans-serif" font-size="76" font-weight="800" letter-spacing="-2" fill="#1F2824">Harshit Vishwakarma</text>
   
-  <line x1="90" y1="320" x2="1110" y2="320" stroke="rgba(35,44,40,0.12)" stroke-width="1" />
+  <line x1="90" y1="320" x2="1110" y2="320" stroke="rgba(31,40,36,0.16)" stroke-width="1" />
   
-  <text x="90" y="380" font-family="'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="600" fill="#232C28">Data Analyst &amp; Machine Learning Developer</text>
-  <text x="90" y="425" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" fill="rgba(35,44,40,0.65)">Specializing in exploratory analysis, predictive modeling, and verified problem solving.</text>
+  <text x="90" y="380" font-family="'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="600" fill="#1F2824">Data Science Student &amp; Analyst</text>
+  <text x="90" y="425" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" fill="rgba(31,40,36,0.72)">Data Science student building projects in data analysis and machine learning.</text>
   
-  <text x="90" y="520" font-family="'JetBrains Mono', monospace" font-size="14" fill="rgba(35,44,40,0.7)">github.com/Harshit82500  •  harshitvishwakarma6264@gmail.com</text>
+  <text x="90" y="520" font-family="'JetBrains Mono', monospace" font-size="14" fill="rgba(31,40,36,0.72)">portfolio-harshit82500.vercel.app  •  harshitvishwakarma6264@gmail.com</text>
   
   <circle cx="1060" cy="515" r="7" fill="#E9C46A" />
 </svg>

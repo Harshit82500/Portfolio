@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { SectionHeader } from '../ui/SectionHeader';
 import { educationData } from '../../data/education';
-import { GraduationCap, Award, MapPin } from 'lucide-react';
+import { GraduationCap, MapPin } from 'lucide-react';
 import { useScroll } from '../../context/scrollTypes';
 
 export const Education: React.FC = () => {
@@ -35,8 +35,9 @@ export const Education: React.FC = () => {
           >
             {/* Degree, Institution & Timeline (5 cols) */}
             <div className="lg:col-span-5 flex flex-col gap-3">
-              <div className="flex items-center gap-2 font-mono text-xs text-gold font-semibold">
-                <GraduationCap size={15} />
+              <div className="flex items-center gap-2 font-mono text-xs text-ink font-semibold">
+                <span className="w-2 h-2 rounded-full bg-gold shrink-0" />
+                <GraduationCap size={15} className="text-ink" />
                 <span>{edu.period}</span>
               </div>
 
@@ -49,7 +50,7 @@ export const Education: React.FC = () => {
               </p>
 
               <div className="flex items-center gap-2 pt-2 text-xs font-mono text-ink/65 border-t border-border-light/60">
-                <MapPin size={13} className="text-gold" />
+                <MapPin size={13} className="text-ink/60" />
                 <span>
                   {edu.institution}, {edu.location}
                 </span>
@@ -68,7 +69,7 @@ export const Education: React.FC = () => {
                     key={idx}
                     className="text-xs sm:text-sm text-ink/75 font-sans flex items-start gap-3 leading-relaxed"
                   >
-                    <Award size={15} className="text-gold shrink-0 mt-0.5" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-2" />
                     <span>{detail}</span>
                   </li>
                 ))}

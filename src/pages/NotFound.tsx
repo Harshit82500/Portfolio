@@ -5,9 +5,12 @@ import { ArrowLeft } from 'lucide-react';
 export const NotFound: React.FC = () => {
   return (
     <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6">
-      <span className="font-mono text-xs uppercase tracking-widest text-gold font-semibold mb-4">
-        404 / Missing Archive
-      </span>
+      <div className="flex items-center gap-2 mb-4">
+        <span className="w-2 h-2 rounded-full bg-gold shrink-0" />
+        <span className="font-mono text-xs uppercase tracking-widest text-ink font-semibold">
+          404 / Missing Archive
+        </span>
+      </div>
       <h1 className="font-sans font-extrabold text-5xl sm:text-7xl text-ink tracking-tight mb-6">
         Nothing to see here.
       </h1>

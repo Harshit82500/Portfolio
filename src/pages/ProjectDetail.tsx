@@ -7,7 +7,6 @@ import {
   ExternalLink,
   Users,
   CheckCircle2,
-  AlertCircle,
   Clock,
   Calendar,
   Send,
@@ -66,9 +65,12 @@ export const ProjectDetail: React.FC = () => {
   if (!project) {
     return (
       <div className="max-w-4xl mx-auto px-5 py-24 text-center">
-        <span className="font-mono text-xs uppercase tracking-widest text-gold mb-4 block font-semibold">
-          404 / Case Study Not Found
-        </span>
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <span className="w-2 h-2 rounded-full bg-gold shrink-0" />
+          <span className="font-mono text-xs uppercase tracking-widest text-ink font-semibold">
+            404 / Case Study Not Found
+          </span>
+        </div>
         <h1 className="font-sans font-bold text-4xl sm:text-5xl text-ink mb-6">
           Project Record Unavailable
         </h1>
@@ -124,7 +126,8 @@ export const ProjectDetail: React.FC = () => {
       {/* Case Study Header */}
       <header className="flex flex-col gap-6">
         <div className="flex flex-wrap items-center gap-2.5">
-          <span className="font-mono text-xs text-gold uppercase tracking-widest font-semibold">
+          <span className="w-2 h-2 rounded-full bg-gold shrink-0" />
+          <span className="font-mono text-xs text-ink uppercase tracking-widest font-semibold">
             CASE STUDY 0{currentIndex + 1}
           </span>
           <span className="text-ink/40">•</span>
@@ -188,7 +191,7 @@ export const ProjectDetail: React.FC = () => {
         </div>
 
         {/* Meta Column Bar (Role, Timeline, Tools with real logos) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-6 sm:p-7 rounded-2xl border border-border-light bg-[#F5F2E8] text-xs font-mono mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-6 sm:p-7 rounded-2xl border border-border-light bg-paper-raised text-xs font-mono mt-4">
           <div className="flex flex-col gap-1">
             <span className="text-ink/50 uppercase text-[10px]">Role / Discipline</span>
             <span className="text-ink font-semibold">{project.role}</span>
@@ -197,7 +200,7 @@ export const ProjectDetail: React.FC = () => {
           <div className="flex flex-col gap-1">
             <span className="text-ink/50 uppercase text-[10px]">Timeline</span>
             <span className="text-ink flex items-center gap-1.5 font-medium">
-              <Calendar size={12} className="text-gold" />
+              <Calendar size={12} className="text-ink/60" />
               {project.dateRange}
             </span>
           </div>
@@ -205,7 +208,7 @@ export const ProjectDetail: React.FC = () => {
           <div className="flex flex-col gap-1">
             <span className="text-ink/50 uppercase text-[10px]">Collaborators</span>
             <span className="text-ink flex items-center gap-1.5 font-medium">
-              <Users size={12} className="text-gold" />
+              <Users size={12} className="text-ink/60" />
               {project.teamMembers?.join(', ') || 'Independent Solo Project'}
             </span>
           </div>
@@ -215,12 +218,12 @@ export const ProjectDetail: React.FC = () => {
             <span className="text-ink flex items-center gap-1.5 font-medium">
               {isInProgress ? (
                 <>
-                  <Clock size={12} className="text-gold" />
+                  <Clock size={12} className="text-ink/60" />
                   <span>In progress, to be added</span>
                 </>
               ) : (
                 <>
-                  <CheckCircle2 size={12} className="text-gold" />
+                  <CheckCircle2 size={12} className="text-ink/60" />
                   <span>Verified Implementation</span>
                 </>
               )}
@@ -248,7 +251,7 @@ export const ProjectDetail: React.FC = () => {
 
       {/* Large Hero Visual Panel or Clean Typographic Fallback */}
       <section aria-label="Visual Overview">
-        <div className="w-full aspect-[16/9] rounded-2xl border border-border-light bg-[#E8E4D5] overflow-hidden relative shadow-sm">
+        <div className="w-full aspect-[16/9] rounded-2xl border border-border-light bg-paper-raised overflow-hidden relative shadow-sm">
           {!imageError && project.image ? (
             <img
               src={project.image}
@@ -259,7 +262,7 @@ export const ProjectDetail: React.FC = () => {
               className="w-full h-full object-cover filter contrast-105"
             />
           ) : (
-            <div className="w-full h-full p-8 sm:p-12 flex flex-col justify-between bg-[#EAE6D7] select-none text-ink">
+            <div className="w-full h-full p-8 sm:p-12 flex flex-col justify-between bg-paper-raised select-none text-ink">
               <div className="flex items-center justify-between font-mono text-xs uppercase text-ink/60">
                 <span>ARCHIVE VISUAL RECORD</span>
                 <span className="font-semibold text-ink">SYS-0{currentIndex + 1}</span>
@@ -286,7 +289,7 @@ export const ProjectDetail: React.FC = () => {
         {/* 01. Context & Problem Statement */}
         <div className="flex flex-col gap-4 border-t border-border-light pt-8">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xs text-gold uppercase tracking-widest font-semibold">01</span>
+            <span className="font-mono text-xs text-ink uppercase tracking-widest font-semibold">01</span>
             <span className="w-6 h-[1px] bg-border-light" />
             <span className="font-mono text-xs text-ink/60 uppercase tracking-widest">
               Problem &amp; Context
@@ -301,8 +304,8 @@ export const ProjectDetail: React.FC = () => {
             {project.overview}
           </p>
 
-          <div className="p-6 rounded-xl border border-border-light bg-[#F5F2E8] my-2">
-            <span className="font-mono text-xs uppercase tracking-wider text-gold font-semibold block mb-2">
+          <div className="p-6 rounded-xl border border-border-light bg-paper-raised my-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-ink font-semibold block mb-2">
               Specific Failure Mode Addressed:
             </span>
             <p className="text-sm font-sans text-ink/80 leading-relaxed">
@@ -314,7 +317,7 @@ export const ProjectDetail: React.FC = () => {
         {/* 02. The Solution & Architecture */}
         <div className="flex flex-col gap-4 border-t border-border-light pt-8">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xs text-gold uppercase tracking-widest font-semibold">02</span>
+            <span className="font-mono text-xs text-ink uppercase tracking-widest font-semibold">02</span>
             <span className="w-6 h-[1px] bg-border-light" />
             <span className="font-mono text-xs text-ink/60 uppercase tracking-widest">
               Solution &amp; Engineering Decisions
@@ -341,7 +344,7 @@ export const ProjectDetail: React.FC = () => {
                     key={idx}
                     className="p-5 rounded-xl border border-border-light bg-paper flex items-start gap-4"
                   >
-                    <span className="font-mono text-xs text-gold font-semibold shrink-0 mt-0.5">
+                    <span className="font-mono text-xs text-ink/70 font-semibold shrink-0 mt-0.5">
                       0{idx + 1}
                     </span>
                     <div>
@@ -362,7 +365,7 @@ export const ProjectDetail: React.FC = () => {
         {/* 03. Key Engineering Challenges */}
         <div className="flex flex-col gap-4 border-t border-border-light pt-8">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xs text-gold uppercase tracking-widest font-semibold">03</span>
+            <span className="font-mono text-xs text-ink uppercase tracking-widest font-semibold">03</span>
             <span className="w-6 h-[1px] bg-border-light" />
             <span className="font-mono text-xs text-ink/60 uppercase tracking-widest">
               Obstacles &amp; Constraints
@@ -379,10 +382,10 @@ export const ProjectDetail: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className="p-5 rounded-xl border border-border-light bg-[#F5F2E8] flex flex-col justify-between"
+                  className="p-5 rounded-xl border border-border-light bg-paper-raised flex flex-col justify-between"
                 >
                   <div>
-                    <span className="font-mono text-xs text-gold font-semibold block mb-2">
+                    <span className="font-mono text-xs text-ink/70 font-semibold block mb-2">
                       CHALLENGE 0{idx + 1}
                     </span>
                     <h3 className="font-sans font-bold text-base text-ink mb-2">
@@ -401,7 +404,7 @@ export const ProjectDetail: React.FC = () => {
         {/* 04. Verified Empirical Metrics */}
         <div className="flex flex-col gap-4 border-t border-border-light pt-8">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xs text-gold uppercase tracking-widest font-semibold">04</span>
+            <span className="font-mono text-xs text-ink uppercase tracking-widest font-semibold">04</span>
             <span className="w-6 h-[1px] bg-border-light" />
             <span className="font-mono text-xs text-ink/60 uppercase tracking-widest">
               Quantitative Verification
@@ -422,7 +425,7 @@ export const ProjectDetail: React.FC = () => {
                   <span className="font-sans font-extrabold text-3xl sm:text-4xl text-ink tracking-tight">
                     {metric.value}
                   </span>
-                  <span className="font-mono text-xs text-gold font-semibold uppercase tracking-wider mt-1">
+                  <span className="font-mono text-xs text-ink/80 font-semibold uppercase tracking-wider mt-1">
                     {metric.label}
                   </span>
                   {metric.description && (
@@ -434,8 +437,8 @@ export const ProjectDetail: React.FC = () => {
               ))}
             </div>
           ) : (
-            <div className="p-6 rounded-xl border border-dashed border-border-light bg-[#F5F2E8] text-xs font-mono text-ink/70">
-              <span className="text-gold font-semibold block mb-1">Empirical Benchmark Status:</span>
+            <div className="p-6 rounded-xl border border-dashed border-border-light bg-paper-raised text-xs font-mono text-ink/70">
+              <span className="text-ink font-semibold block mb-1">Empirical Benchmark Status:</span>
               <p>{project.caseStudyPlaceholder || '[ADD: result after I provide it]'}</p>
             </div>
           )}
@@ -444,7 +447,7 @@ export const ProjectDetail: React.FC = () => {
         {/* 05. Limitations & Boundaries */}
         <div className="flex flex-col gap-4 border-t border-border-light pt-8">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xs text-gold uppercase tracking-widest font-semibold">05</span>
+            <span className="font-mono text-xs text-ink uppercase tracking-widest font-semibold">05</span>
             <span className="w-6 h-[1px] bg-border-light" />
             <span className="font-mono text-xs text-ink/60 uppercase tracking-widest">
               Boundaries &amp; Honest Limitations
@@ -459,9 +462,9 @@ export const ProjectDetail: React.FC = () => {
             {project.limitations.map((limit, idx) => (
               <li
                 key={idx}
-                className="text-sm font-sans text-ink/80 flex items-start gap-3 p-4 rounded-xl border border-border-light bg-[#F5F2E8]"
+                className="text-sm font-sans text-ink/80 flex items-start gap-3 p-4 rounded-xl border border-border-light bg-paper-raised"
               >
-                <AlertCircle size={16} className="text-gold shrink-0 mt-0.5" />
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-2" />
                 <span>{limit}</span>
               </li>
             ))}
@@ -471,7 +474,7 @@ export const ProjectDetail: React.FC = () => {
         {/* 06. Deliverables & Artifacts */}
         <div className="flex flex-col gap-4 border-t border-border-light pt-8">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xs text-gold uppercase tracking-widest font-semibold">06</span>
+            <span className="font-mono text-xs text-ink uppercase tracking-widest font-semibold">06</span>
             <span className="w-6 h-[1px] bg-border-light" />
             <span className="font-mono text-xs text-ink/60 uppercase tracking-widest">
               Deliverables &amp; Code Artifacts
@@ -488,7 +491,7 @@ export const ProjectDetail: React.FC = () => {
                 key={idx}
                 className="p-4 rounded-xl border border-border-light bg-paper flex items-center gap-3"
               >
-                <CheckCircle2 size={16} className="text-gold shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
                 <span className="text-xs font-mono text-ink/85 font-medium">{item}</span>
               </div>
             ))}
@@ -501,7 +504,7 @@ export const ProjectDetail: React.FC = () => {
         {prevProject ? (
           <Link
             to={`/project/${prevProject.id}`}
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-ink hover:text-gold transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-ink hover:underline decoration-gold decoration-2 transition-colors"
           >
             <ArrowLeft size={14} />
             <span>Prev: {prevProject.title}</span>
@@ -513,7 +516,7 @@ export const ProjectDetail: React.FC = () => {
         {nextProject ? (
           <Link
             to={`/project/${nextProject.id}`}
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-ink hover:text-gold transition-colors ml-auto"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-ink hover:underline decoration-gold decoration-2 transition-colors ml-auto"
           >
             <span>Next: {nextProject.title}</span>
             <ArrowRight size={14} />

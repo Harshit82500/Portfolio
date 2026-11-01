@@ -19,7 +19,7 @@ import {
   SiGithub,
   SiDocker,
 } from '@icons-pack/react-simple-icons';
-import { CheckCircle2, ShieldCheck, AlertCircle } from 'lucide-react';
+import { ShieldCheck, AlertCircle } from 'lucide-react';
 import { useScroll } from '../../context/scrollTypes';
 
 const iconMap: Record<string, React.ComponentType<{ size?: number; color?: string; className?: string }>> = {
@@ -110,7 +110,7 @@ export const Skills: React.FC = () => {
                             className="transition-colors duration-200"
                           />
                         ) : skill.iconType === 'missing' ? (
-                          <span className="font-sans font-bold text-xs text-gold">
+                          <span className="font-sans font-bold text-xs text-ink">
                             PBi
                           </span>
                         ) : (
@@ -170,7 +170,7 @@ export const Skills: React.FC = () => {
                   <h4 className="font-sans font-bold text-base sm:text-lg text-ink">
                     {cert.name}
                   </h4>
-                  <CheckCircle2 size={15} className="text-gold shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {cert.skillsCovered.slice(0, 3).map((s) => (
@@ -191,7 +191,7 @@ export const Skills: React.FC = () => {
 
               {/* Verification Code / ID (3 cols) */}
               <div className="lg:col-span-3 flex lg:justify-end items-center gap-1.5 font-mono text-xs text-ink/60">
-                <ShieldCheck size={14} className="text-gold shrink-0" />
+                <ShieldCheck size={14} className="text-ink/60 shrink-0" />
                 <span className="truncate">
                   {cert.credentialId ? `ID: ${cert.credentialId}` : `Code: ${cert.verificationCode}`}
                 </span>
@@ -202,8 +202,8 @@ export const Skills: React.FC = () => {
       </div>
 
       {/* Honest Icon Audit Note */}
-      <div className="mt-8 p-4 rounded-xl border border-border-light bg-[#ECE8DA] flex items-start gap-3 text-xs font-mono text-ink/70">
-        <AlertCircle size={15} className="text-gold shrink-0 mt-0.5" />
+      <div className="mt-8 p-4 rounded-xl border border-border-light bg-paper-raised flex items-start gap-3 text-xs font-mono text-ink/70">
+        <AlertCircle size={15} className="text-ink shrink-0 mt-0.5" />
         <p className="leading-relaxed">
           <strong className="text-ink">Verification Standard:</strong> Microsoft Power BI is represented with a custom typographical monogram because it has no published vector glyph in either official Simple Icons or Devicon libraries.
         </p>

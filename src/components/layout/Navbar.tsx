@@ -91,10 +91,10 @@ export const Navbar: React.FC = () => {
             className="flex items-center gap-2 group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-full px-1 py-0.5"
             aria-label="Scroll to top"
           >
-            <span className="font-sans font-bold text-lg sm:text-xl tracking-tight text-ink group-hover:text-gold transition-colors duration-200">
+            <span className="font-sans font-bold text-lg sm:text-xl tracking-tight text-ink group-hover:opacity-85 transition-opacity duration-200">
               {personalInfo.name}
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+            <span className="w-1.5 h-1.5 rounded-full bg-gold group-hover:scale-125 transition-transform duration-200" />
           </button>
 
           {/* Availability Pill (controlled by personalInfo.isAvailableForWork, default OFF) */}
@@ -155,7 +155,7 @@ export const Navbar: React.FC = () => {
         {/* Mobile menu trigger */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-ink hover:text-gold focus-visible:outline-none cursor-pointer"
+          className="md:hidden p-2 text-ink hover:opacity-75 focus-visible:outline-none cursor-pointer"
           aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
           aria-expanded={mobileMenuOpen}
         >
@@ -203,7 +203,7 @@ export const Navbar: React.FC = () => {
                     onClick={() => handleNavClick(item.id)}
                     className="flex items-center justify-between text-left py-3 border-b border-border-light group cursor-pointer"
                   >
-                    <span className="font-sans font-bold text-3xl sm:text-4xl text-ink group-hover:text-gold transition-colors">
+                    <span className="font-sans font-bold text-3xl sm:text-4xl text-ink group-hover:translate-x-2 transition-transform duration-200">
                       {item.label}
                     </span>
                     {item.superscript !== undefined && (

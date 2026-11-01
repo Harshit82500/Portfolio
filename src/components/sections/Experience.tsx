@@ -29,7 +29,7 @@ export const Experience: React.FC = () => {
       id="experience"
       aria-label="Experience & Trajectory"
       onMouseMove={handleMouseMove}
-      className="scroll-mt-24 -mx-5 sm:-mx-8 lg:-mx-12 px-5 sm:px-8 lg:px-12 py-20 sm:py-28 my-16 sm:my-24 bg-ink text-paper relative overflow-hidden"
+      className="scroll-mt-24 -mx-5 sm:-mx-8 lg:-mx-12 px-5 sm:px-8 lg:px-12 py-20 sm:py-28 my-16 sm:my-24 bg-ink-deep text-paper relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header (Dark Mode with Faint Watermark) */}

@@ -51,7 +51,7 @@ export const LetterRoll: React.FC<LetterRollProps> = ({
         ))}
       </span>
       {superscript !== undefined && (
-        <sup className="text-[10px] font-mono text-ink/60 group-hover:text-gold transition-colors ml-1 -top-1.5">
+        <sup className="text-[10px] font-mono text-ink/60 group-hover:text-ink font-bold transition-colors ml-1 -top-1.5">
           {superscript}
         </sup>
       )}

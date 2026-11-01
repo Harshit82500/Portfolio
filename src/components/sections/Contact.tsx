@@ -217,8 +217,9 @@ export const Contact: React.FC = () => {
               {/* Name & Email Inputs */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="name" className="font-mono text-xs uppercase tracking-wider text-ink/70">
-                    Your Name <span className="text-gold">*</span>
+                  <label htmlFor="name" className="font-mono text-xs uppercase tracking-wider text-ink/70 flex items-center gap-1.5">
+                    <span>Your Name</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold" />
                   </label>
                   <input
                     type="text"
@@ -228,13 +229,14 @@ export const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="e.g. Alex Vance"
-                    className="w-full px-4 py-3 rounded-xl border border-border-light bg-[#F5F2E8] text-ink placeholder:text-ink/35 text-sm font-sans focus:outline-none focus:border-ink transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-border-light bg-paper-raised text-ink placeholder:text-ink/35 text-sm font-sans focus:outline-none focus:border-ink transition-colors"
                   />
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="font-mono text-xs uppercase tracking-wider text-ink/70">
-                    Email Address <span className="text-gold">*</span>
+                  <label htmlFor="email" className="font-mono text-xs uppercase tracking-wider text-ink/70 flex items-center gap-1.5">
+                    <span>Email Address</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold" />
                   </label>
                   <input
                     type="email"
@@ -244,7 +246,7 @@ export const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="e.g. alex@enterprise.com"
-                    className="w-full px-4 py-3 rounded-xl border border-border-light bg-[#F5F2E8] text-ink placeholder:text-ink/35 text-sm font-sans focus:outline-none focus:border-ink transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-border-light bg-paper-raised text-ink placeholder:text-ink/35 text-sm font-sans focus:outline-none focus:border-ink transition-colors"
                   />
                 </div>
               </div>
@@ -261,14 +263,15 @@ export const Contact: React.FC = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="e.g. Data Analyst Role / Consultation Inquiry"
-                  className="w-full px-4 py-3 rounded-xl border border-border-light bg-[#F5F2E8] text-ink placeholder:text-ink/35 text-sm font-sans focus:outline-none focus:border-ink transition-colors"
+                  className="w-full px-4 py-3 rounded-xl border border-border-light bg-paper-raised text-ink placeholder:text-ink/35 text-sm font-sans focus:outline-none focus:border-ink transition-colors"
                 />
               </div>
 
               {/* Message */}
               <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="font-mono text-xs uppercase tracking-wider text-ink/70">
-                  Message Content <span className="text-gold">*</span>
+                <label htmlFor="message" className="font-mono text-xs uppercase tracking-wider text-ink/70 flex items-center gap-1.5">
+                  <span>Message Content</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold" />
                 </label>
                 <textarea
                   id="message"
@@ -278,7 +281,7 @@ export const Contact: React.FC = () => {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Describe your project, timeline, or position details..."
-                  className="w-full px-4 py-3 rounded-xl border border-border-light bg-[#F5F2E8] text-ink placeholder:text-ink/35 text-sm font-sans focus:outline-none focus:border-ink transition-colors resize-y"
+                  className="w-full px-4 py-3 rounded-xl border border-border-light bg-paper-raised text-ink placeholder:text-ink/35 text-sm font-sans focus:outline-none focus:border-ink transition-colors resize-y"
                 />
               </div>
 
@@ -316,9 +319,12 @@ export const Contact: React.FC = () => {
           className="lg:col-span-5 flex flex-col gap-6"
         >
           <div className="rounded-2xl border border-border-light bg-paper p-7 flex flex-col gap-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-gold font-semibold">
-              Direct Channels
-            </span>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-gold shrink-0" />
+              <span className="font-mono text-xs uppercase tracking-widest text-ink font-semibold">
+                Direct Channels
+              </span>
+            </div>
 
             <p className="font-sans text-sm text-ink/75 leading-relaxed">
               Whether discussing prospective machine learning roles, analytical consultations, or academic research collaborations, feel free to reach out directly.
@@ -329,7 +335,7 @@ export const Contact: React.FC = () => {
                 <span className="font-mono text-[10px] uppercase text-ink/50 block">Electronic Mail:</span>
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="font-sans font-bold text-base text-ink hover:text-gold transition-colors"
+                  className="font-sans font-bold text-base text-ink hover:underline decoration-gold decoration-2 transition-colors"
                 >
                   {personalInfo.email}
                 </a>
@@ -344,7 +350,7 @@ export const Contact: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border-light bg-[#ECE8DA] p-6 text-xs font-mono text-ink/70 leading-relaxed">
+          <div className="rounded-2xl border border-border-light bg-paper-raised p-6 text-xs font-mono text-ink/70 leading-relaxed">
             <strong className="text-ink block mb-1">Response Commitment:</strong>
             Direct communications are monitored daily. Inquiries containing verifiable job specifications or detailed project proposals receive priority response.
           </div>
