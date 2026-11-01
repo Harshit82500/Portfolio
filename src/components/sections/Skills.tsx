@@ -151,17 +151,17 @@ export const Skills: React.FC = () => {
               className="p-5 border border-editorial-border bg-editorial-surface hover:border-editorial-accent/40 transition-all duration-200 flex flex-col justify-between min-h-[140px] group"
             >
               <div className="flex items-start justify-between">
-                {/* Brand Icon: Monochrome Ivory by default, unified accent color on hover */}
+                {/* Brand Icon: Monochrome text by default, brand color on hover */}
                 <div className="w-8 h-8 flex items-center justify-center transition-colors duration-200">
                   {IconComponent ? (
                     <IconComponent
                       size={24}
-                      color={isHovered ? 'var(--color-editorial-accent, #C9F27A)' : 'var(--color-editorial-text, #E8E4D8)'}
+                      color={isHovered ? skill.brandColor : 'var(--color-editorial-text, #EFEBDD)'}
                       className="transition-colors duration-200"
                     />
                   ) : skill.iconType === 'missing' ? (
                     <span
-                      style={{ color: isHovered ? 'var(--color-editorial-accent, #C9F27A)' : 'var(--color-editorial-text, #E8E4D8)' }}
+                      style={{ color: isHovered ? skill.brandColor : 'var(--color-editorial-text, #EFEBDD)' }}
                       className="font-serif italic text-xl font-bold tracking-tighter transition-colors duration-200"
                     >
                       PBi

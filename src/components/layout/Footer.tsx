@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer className="border-t border-editorial-border bg-editorial-bg text-editorial-muted text-xs font-mono pt-16 pb-12 mt-32 relative overflow-hidden">
+    <footer className="border-t border-editorial-border bg-editorial-surface-deep text-editorial-muted text-xs font-mono pt-16 pb-12 mt-32 relative overflow-hidden">
       {/* Locomotive Grand Curtain Reveal Typography */}
       <div
         data-scroll

@@ -46,7 +46,7 @@ export const Button: React.FC<ButtonProps> = ({
   }[size];
 
   const variantStyles = {
-    primary: 'bg-editorial-accent text-editorial-bg font-semibold hover:bg-editorial-accent-hover',
+    primary: 'bg-editorial-accent text-editorial-surface-deep font-semibold hover:bg-editorial-accent-hover',
     outline: 'border border-editorial-border text-editorial-text hover:border-editorial-accent hover:text-editorial-accent bg-transparent',
     ghost: 'text-editorial-muted hover:text-editorial-text bg-transparent p-0',
   }[variant];

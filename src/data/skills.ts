@@ -51,7 +51,7 @@ export const skillsData: Skill[] = [
     category: 'Data Science & ML',
     iconType: 'simple-icon',
     iconKey: 'SiPandas',
-    brandColor: '#150458',
+    brandColor: '#E70488',
     proficiency: 'Comfortable',
   },
   {
@@ -59,7 +59,7 @@ export const skillsData: Skill[] = [
     category: 'Data Science & ML',
     iconType: 'simple-icon',
     iconKey: 'SiNumpy',
-    brandColor: '#013243',
+    brandColor: '#4DABCF',
     proficiency: 'Comfortable',
   },
   {
@@ -85,7 +85,7 @@ export const skillsData: Skill[] = [
     category: 'Databases & Systems',
     iconType: 'simple-icon',
     iconKey: 'SiSqlite',
-    brandColor: '#003B57',
+    brandColor: '#0F80C1',
     proficiency: 'Comfortable',
   },
   {
@@ -111,7 +111,7 @@ export const skillsData: Skill[] = [
     category: 'Backend & Tools',
     iconType: 'simple-icon',
     iconKey: 'SiFlask',
-    brandColor: '#E8E4D8',
+    brandColor: '#FFFFFF',
     proficiency: 'Comfortable',
   },
   {
@@ -135,7 +135,7 @@ export const skillsData: Skill[] = [
     category: 'Backend & Tools',
     iconType: 'simple-icon',
     iconKey: 'SiGithub',
-    brandColor: '#E8E4D8',
+    brandColor: '#FFFFFF',
     proficiency: 'Comfortable',
   },
   {

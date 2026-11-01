@@ -168,7 +168,7 @@ export const Projects: React.FC = () => {
                   <div className="flex flex-wrap items-center gap-4 mt-8 pt-4 border-t border-editorial-border/60">
                     <Link
                       to={`/project/${project.id}`}
-                      className="inline-flex items-center gap-2 px-4 py-2 border border-editorial-accent text-editorial-accent hover:bg-editorial-accent hover:text-editorial-bg text-xs font-mono uppercase tracking-widest transition-colors duration-200"
+                      className="inline-flex items-center gap-2 px-4 py-2 border border-editorial-accent text-editorial-accent hover:bg-editorial-accent hover:text-editorial-surface-deep text-xs font-mono uppercase tracking-widest transition-colors duration-200"
                     >
                       <span>Read Case Study</span>
                       <ArrowUpRight size={14} />

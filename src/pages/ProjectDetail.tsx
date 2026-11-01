@@ -153,7 +153,7 @@ export const ProjectDetail: React.FC = () => {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 border border-editorial-accent text-editorial-accent hover:bg-editorial-accent hover:text-editorial-bg text-xs font-mono uppercase tracking-widest transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 border border-editorial-accent text-editorial-accent hover:bg-editorial-accent hover:text-editorial-surface-deep text-xs font-mono uppercase tracking-widest transition-colors"
             >
               <span>Live Application</span>
               <ExternalLink size={14} />

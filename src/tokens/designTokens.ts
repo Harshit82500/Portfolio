@@ -11,30 +11,31 @@
 
 export const tokens = {
   colors: {
-    // Primary palette
-    background: '#0B1210',
-    surface: '#121C18',
-    backgroundSubtle: '#121C18',
-    backgroundElevated: '#17231E',
-    text: '#E8E4D8',
-    textMuted: '#7F8C84',
-    textDim: '#5A665E',
+    // Primary palette ("Slate & Sage" mid-tone dark)
+    background: '#2B3631',
+    surface: '#35423C',
+    surfaceDeep: '#232C28',
+    backgroundSubtle: '#35423C',
+    backgroundElevated: '#3F4E47',
+    text: '#EFEBDD',
+    textMuted: '#B2BDB6',
+    textDim: '#85948A',
 
     // Hairline borders
-    border: 'rgba(232, 228, 216, 0.12)',
-    borderHover: 'rgba(232, 228, 216, 0.28)',
-    borderStrong: 'rgba(232, 228, 216, 0.40)',
+    border: 'rgba(239, 235, 221, 0.14)',
+    borderHover: 'rgba(239, 235, 221, 0.28)',
+    borderStrong: 'rgba(239, 235, 221, 0.42)',
 
     // Singular accent (used strictly for interactive signals, small focal points)
-    accent: '#C9F27A',
-    accentHover: '#D6F594',
-    accentMuted: 'rgba(201, 242, 122, 0.15)',
-    accentBorder: 'rgba(201, 242, 122, 0.35)',
+    accent: '#E9C46A',
+    accentHover: '#F0D38D',
+    accentMuted: 'rgba(233, 196, 106, 0.15)',
+    accentBorder: 'rgba(233, 196, 106, 0.35)',
 
     // Utility & status
-    success: '#C9F27A',
+    success: '#E9C46A',
     error: '#F87171',
-    surfaceOverlay: 'rgba(11, 18, 16, 0.85)',
+    surfaceOverlay: 'rgba(43, 54, 49, 0.85)',
   },
 
   typography: {
@@ -67,7 +68,7 @@ export const tokens = {
       desktop: '4rem',    // px-16
       wide: '6rem',       // px-24
     },
-    hairline: '1px solid rgba(232, 228, 216, 0.12)',
+    hairline: '1px solid rgba(239, 235, 221, 0.14)',
   },
 
   motion: {
