@@ -118,18 +118,18 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" aria-label="Contact Transmission" className="scroll-mt-24 py-[var(--space-section)]">
+    <section id="contact" aria-label="Contact Transmission" className="scroll-mt-24 pt-8">
       {/* Section Header */}
       <SectionHeader
         number="06"
         label="Direct Transmission"
-        title="Let's Connect and Build Something Meaningful."
+        headline="Let's Connect and Build Something Meaningful."
         description="Available for data science positions, quantitative analytics consultations, and machine learning collaborations."
         watermark="CONNECT"
       />
 
       {/* Row of Social Pills */}
-      <div className="flex flex-wrap items-center gap-3 mt-[var(--space-header-to-content)] mb-[var(--space-block)]">
+      <div className="flex flex-wrap items-center gap-3 mb-12">
         <a
           href={personalInfo.githubUrl}
           target="_blank"

@@ -14,18 +14,18 @@ export const WhatIDo: React.FC = () => {
   };
 
   return (
-    <section id="what-i-do" aria-label="What I Do / Focus Domains" className="scroll-mt-24 py-[var(--space-section)]">
+    <section id="what-i-do" aria-label="What I Do / Focus Domains" className="scroll-mt-24 pt-8">
       {/* Section Header */}
       <SectionHeader
         number="02"
         label="What I Do"
-        title="Analytical rigor, calibrated systems & clear visual telemetry."
-        description="Core competencies and primary engineering disciplines. Click any discipline to review technical deliverables and architecture."
+        headline="Analytical rigor, calibrated systems & clear visual telemetry."
+        description="Core competencies and specialized engineering domains. Click any discipline to review technical deliverables and architecture."
         watermark="FOCUS"
       />
 
       {/* Interactive Rows */}
-      <div className="flex flex-col mt-[var(--space-header-to-content)]">
+      <div className="flex flex-col border-t border-border-light">
         {whatIDoData.map((item, index) => {
           const isExpanded = expandedId === item.id;
 
@@ -35,7 +35,7 @@ export const WhatIDo: React.FC = () => {
               <motion.div
                 initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '0px 0px -10% 0px' }}
+                viewport={{ once: true, margin: '-50px' }}
                 transition={{
                   duration: 0.5,
                   delay: index * 0.1,

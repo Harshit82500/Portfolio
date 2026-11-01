@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer className="border-t border-border-light bg-paper text-ink pt-[var(--space-section)] pb-12 relative overflow-hidden">
+    <footer className="border-t border-border-light bg-paper text-ink pt-16 sm:pt-20 pb-12 mt-24 sm:mt-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col gap-12 sm:gap-16">
         {/* Top: Huge Geometric Wordmark */}
         <div className="border-b border-border-light pb-8 select-none">

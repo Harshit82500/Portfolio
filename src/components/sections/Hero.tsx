@@ -14,7 +14,7 @@ export const Hero: React.FC = () => {
     <section
       id="hero"
       aria-label="Hero Introduction"
-      className="relative pt-2 sm:pt-4 lg:pt-6 pb-[var(--space-section)] overflow-hidden"
+      className="relative pt-2 sm:pt-4 lg:pt-6 pb-12 sm:pb-16 lg:pb-20 overflow-hidden"
     >
       <div className="w-full flex flex-col md:grid md:grid-cols-12 md:gap-x-8 items-end relative">
         {/* 1. Name: HARSHIT (Solid Ink) & VISHWAKARMA (Outlined Hairline, Static Font) */}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { SectionHeader } from '../ui/SectionHeader';
 import { educationData } from '../../data/education';
@@ -7,34 +7,25 @@ import { useScroll } from '../../context/scrollTypes';
 
 export const Education: React.FC = () => {
   const { prefersReducedMotion } = useScroll();
-  const [failsafeVisible, setFailsafeVisible] = useState(false);
-
-  useEffect(() => {
-    // Failsafe: guarantees academic credentials are never stuck at opacity: 0
-    const timer = setTimeout(() => setFailsafeVisible(true), 800);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
-    <section id="education" aria-label="Education" className="scroll-mt-24 py-[var(--space-section)]">
+    <section id="education" aria-label="Education" className="scroll-mt-24 pt-8">
       {/* Section Header */}
       <SectionHeader
         number="05"
         label="Academic Foundation"
-        title="Formal engineering degree & computing laboratory practice."
+        headline="Formal engineering degree & computing laboratory practice."
         description="Grounded in computer science theory, algorithms, database systems, and statistical machine learning."
         watermark="STUDIES"
       />
 
-      {/* Education Content: Follows immediately below header divider */}
-      <div className="flex flex-col mt-[var(--space-header-to-content)]">
+      <div className="flex flex-col">
         {educationData.map((edu, index) => (
           <motion.div
             key={edu.id}
             initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            animate={failsafeVisible ? { opacity: 1, y: 0 } : undefined}
-            viewport={{ once: true, margin: '0px 0px -10% 0px' }}
+            viewport={{ once: true, margin: '-40px' }}
             transition={{
               duration: 0.5,
               delay: index * 0.1,

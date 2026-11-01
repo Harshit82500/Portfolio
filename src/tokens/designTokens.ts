@@ -80,12 +80,6 @@ export const tokens = {
     hairline: '1px solid rgba(31, 40, 36, 0.16)',
   },
 
-  spacing: {
-    section: 'clamp(72px, 10vh, 140px)',
-    headerToContent: 'clamp(32px, 5vh, 64px)',
-    block: 'clamp(24px, 4vh, 48px)',
-  },
-
   motion: {
     // Single signature easing curve across the entire site
     ease: [0.22, 1, 0.36, 1] as const,

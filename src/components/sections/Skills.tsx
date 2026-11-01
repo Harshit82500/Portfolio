@@ -51,18 +51,18 @@ export const Skills: React.FC = () => {
   const { prefersReducedMotion } = useScroll();
 
   return (
-    <section id="skills" aria-label="Skills & Credentials" className="scroll-mt-24 py-[var(--space-section)]">
+    <section id="skills" aria-label="Skills & Credentials" className="scroll-mt-24 pt-8">
       {/* Section Header */}
       <SectionHeader
         number="04"
         label="Skills & Credentials"
-        title="Authentic tooling, frameworks & verified certifications."
+        headline="Authentic tooling, frameworks & verified certifications."
         description="Structured by domain with official Simple Icons and Devicon brand assets. Strictly no fabricated percentage bars or proficiency meters."
         watermark="STACK"
       />
 
       {/* Part A: Technical Stack Rows */}
-      <div className="flex flex-col mt-[var(--space-header-to-content)] mb-[var(--space-block)]">
+      <div className="flex flex-col border-t border-border-light mb-16">
         {skillCategories.map((category, catIndex) => {
           const categorySkills = skillsData.filter((s) => s.category === category);
 
@@ -71,7 +71,7 @@ export const Skills: React.FC = () => {
               key={category}
               initial={prefersReducedMotion ? false : { opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '0px 0px -10% 0px' }}
+              viewport={{ once: true, margin: '-40px' }}
               transition={{
                 duration: 0.45,
                 delay: catIndex * 0.08,
@@ -132,7 +132,7 @@ export const Skills: React.FC = () => {
       </div>
 
       {/* Part B: Verified Certifications Rows */}
-      <div className="mt-[var(--space-block)]">
+      <div className="mt-12">
         <div className="flex items-center gap-3 mb-6">
           <span className="font-mono text-xs uppercase tracking-widest text-ink font-semibold">
             Verified Credentials &amp; Simulations
@@ -146,7 +146,7 @@ export const Skills: React.FC = () => {
               key={cert.id}
               initial={prefersReducedMotion ? false : { opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '0px 0px -10% 0px' }}
+              viewport={{ once: true, margin: '-40px' }}
               transition={{
                 duration: 0.45,
                 delay: index * 0.08,
@@ -202,7 +202,7 @@ export const Skills: React.FC = () => {
       </div>
 
       {/* Honest Icon Audit Note */}
-      <div className="mt-[var(--space-block)] p-4 rounded-xl border border-border-light bg-paper-raised flex items-start gap-3 text-xs font-mono text-ink/70">
+      <div className="mt-8 p-4 rounded-xl border border-border-light bg-paper-raised flex items-start gap-3 text-xs font-mono text-ink/70">
         <AlertCircle size={15} className="text-ink shrink-0 mt-0.5" />
         <p className="leading-relaxed">
           <strong className="text-ink">Verification Standard:</strong> Microsoft Power BI is represented with a custom typographical monogram because it has no published vector glyph in either official Simple Icons or Devicon libraries.
