@@ -1,182 +1,183 @@
 import React, { useState } from 'react';
-import { personalInfo } from '../../data/personalInfo';
-import { Button } from '../ui/Button';
-import { ArrowDown, ArrowUpRight } from 'lucide-react';
-import { useScroll } from '../../context/scrollTypes';
-import { TextReveal } from '../motion/TextReveal';
 import { motion } from 'motion/react';
+import { ArrowUpRight, Mail } from 'lucide-react';
+import { SiGithub } from '@icons-pack/react-simple-icons';
+import { DeviconLinkedIn } from '../icons/DeviconLinkedIn';
+import { personalInfo } from '../../data/personalInfo';
+import { useScroll } from '../../context/scrollTypes';
 
 export const Hero: React.FC = () => {
   const { scrollTo, prefersReducedMotion } = useScroll();
   const [imageError, setImageError] = useState(false);
+  const [isCutoutAvailable, setIsCutoutAvailable] = useState(false);
+
+  // Check if cutout image is present; if it fails to load, gracefully fall back to harshit.jpg in the arch frame
+  const portraitSource = isCutoutAvailable
+    ? '/images/harshit-cutout.png'
+    : '/images/harshit.jpg';
 
   return (
     <section
       id="hero"
-      aria-label="Hero Overview"
-      className="relative min-h-[85vh] flex flex-col justify-between pt-12 pb-16 border-b border-editorial-border overflow-hidden"
+      aria-label="Hero Introduction"
+      className="relative pt-6 sm:pt-10 pb-16 sm:pb-24 overflow-hidden"
     >
-      {/* Locomotive Parallax Background Ghost Monogram */}
-      <div
-        data-scroll
-        data-scroll-speed="-2.5"
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-12 -right-10 font-serif italic text-[22vw] text-editorial-text/[0.025] select-none leading-none z-0 select-none"
-      >
-        HV
-      </div>
+      {/* 1. Huge Typography Header: One part filled, one part outlined */}
+      <div className="relative z-10 w-full text-center">
+        <motion.h1
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="font-sans font-extrabold tracking-tighter uppercase leading-[0.88] select-none text-[15vw] sm:text-[13vw] lg:text-[11.5vw]"
+        >
+          {/* First name: Solid Ink */}
+          <span className="block text-ink">{personalInfo.name}</span>
+          {/* Surname: Outlined Hairline / Bold Stroke */}
+          <span className="block text-transparent [-webkit-text-stroke:1.5px_#232C28] sm:[-webkit-text-stroke:2px_#232C28] lg:[-webkit-text-stroke:3px_#232C28]">
+            {personalInfo.surname}
+          </span>
+        </motion.h1>
 
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        {/* Left Column: Role, Headline, Description, CTAs */}
-        <div className="lg:col-span-8 flex flex-col">
-          {/* Static Role Line & Availability Indicator */}
+        {/* 2. Overlapping Portrait: Arch-shaped frame overlapping the bottom of the huge name */}
+        <div className="relative -mt-12 sm:-mt-20 lg:-mt-28 z-20 flex justify-center pointer-events-auto">
           <motion.div
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-wrap items-center gap-3 mb-8"
+            initial={
+              prefersReducedMotion
+                ? false
+                : { opacity: 0, scale: 0.92, y: 30 }
+            }
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="w-52 sm:w-68 lg:w-80 aspect-[4/5] rounded-t-full overflow-hidden border-2 border-ink bg-paper shadow-2xl relative group"
           >
-            <span className="w-2 h-2 rounded-full bg-editorial-accent" />
-            <span className="font-mono text-xs uppercase tracking-widest text-editorial-muted">
-              {personalInfo.staticRoleLine}
-            </span>
-            <span className="text-editorial-border">/</span>
-            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full border border-editorial-border bg-editorial-surface text-[10px] font-mono tracking-wider uppercase text-editorial-muted">
-              <span
-                className={`w-1.5 h-1.5 rounded-full ${
-                  personalInfo.isAvailableForWork ? 'bg-editorial-accent animate-pulse' : 'bg-editorial-muted'
-                }`}
+            {!imageError ? (
+              <motion.img
+                src={portraitSource}
+                alt={`${personalInfo.fullName} portrait`}
+                loading="eager"
+                onError={() => {
+                  if (isCutoutAvailable) {
+                    setIsCutoutAvailable(false);
+                  } else {
+                    setImageError(true);
+                  }
+                }}
+                initial={prefersReducedMotion ? false : { filter: 'grayscale(100%)' }}
+                animate={{ filter: 'grayscale(0%)' }}
+                transition={{ duration: 1.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
-              <span>
-                {personalInfo.isAvailableForWork
-                  ? 'Available for Q1 2027 Roles'
-                  : personalInfo.availabilityStatusText}
-              </span>
-            </div>
-          </motion.div>
+            ) : (
+              /* Fallback if image path is unavailable */
+              <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center select-none bg-paper">
+                <span className="font-sans font-extrabold text-5xl text-ink">
+                  {personalInfo.monogram}
+                </span>
+                <span className="font-mono text-[10px] text-ink/60 uppercase tracking-widest mt-2">
+                  [ADD: public/images/harshit.jpg]
+                </span>
+              </div>
+            )}
 
-          {/* Large Serif Headline with Kinetic Skew & Multi-Speed Parallax */}
-          <h1
-            data-scroll
-            data-scroll-speed="0.6"
-            className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] text-editorial-text tracking-tight leading-[1.03] max-w-4xl loco-skew"
-          >
-            <TextReveal as="span" delay={0.1}>
-              {personalInfo.heroHeadline}
-            </TextReveal>
-          </h1>
-
-          {/* Subtitle / Narrative */}
-          <motion.p
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-8 text-base sm:text-lg text-editorial-muted font-sans max-w-2xl leading-relaxed"
-          >
-            {personalInfo.heroDescription}
-          </motion.p>
-
-          {/* CTA Buttons with Magnetic Hover */}
-          <motion.div
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-wrap items-center gap-4 mt-10"
-          >
-            <Button
-              variant="primary"
-              size="lg"
-              magnetic
-              onClick={() => scrollTo('#projects')}
-              icon={<ArrowDown size={14} />}
-            >
-              Selected Projects
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              magnetic
-              onClick={() => scrollTo('#contact')}
-              icon={<ArrowUpRight size={14} />}
-            >
-              Get in Touch
-            </Button>
-          </motion.div>
-        </div>
-
-        {/* Right Column: Editorial Photo Frame with Opposite Parallax Depth */}
-        <div className="lg:col-span-4 flex flex-col items-start lg:items-end">
-          <motion.div
-            initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            data-scroll
-            data-scroll-speed="-0.6"
-            className="w-full max-w-[320px] aspect-[4/5] border border-editorial-border bg-editorial-surface p-3 relative group loco-skew"
-          >
-            <div className="w-full h-full border border-editorial-border/60 bg-editorial-bg overflow-hidden relative flex flex-col items-center justify-center">
-              {!imageError ? (
-                <img
-                  src={personalInfo.photoUrl}
-                  alt={`${personalInfo.fullName} portrait`}
-                  width={320}
-                  height={400}
-                  loading="eager"
-                  onError={() => setImageError(true)}
-                  className="w-full h-full object-cover filter grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
-                />
-              ) : (
-                /* Neutral Editorial Monogram Fallback */
-                <div className="w-full h-full flex flex-col items-center justify-between p-6 text-center select-none bg-editorial-surface/80">
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-editorial-muted">
-                    PORTRAIT FRAME
-                  </span>
-                  <div className="flex flex-col items-center">
-                    <span className="font-serif italic text-7xl text-editorial-text/80">
-                      {personalInfo.monogram}
-                    </span>
-                    <span className="w-6 h-[1px] bg-editorial-accent mt-2 mb-3" />
-                    <span className="font-mono text-xs text-editorial-muted uppercase tracking-wider">
-                      {personalInfo.fullName}
-                    </span>
-                  </div>
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-editorial-dim">
-                    [ADD: public/images/harshit.jpg]
-                  </span>
-                </div>
-              )}
-            </div>
-
-            {/* Frame metadata label */}
-            <div className="flex items-center justify-between mt-3 text-[10px] font-mono uppercase tracking-widest text-editorial-muted">
-              <span>FIG. 01 / PORTRAIT</span>
-              <span className="text-editorial-accent">IND</span>
-            </div>
+            {/* Subtle arch frame accent hairline */}
+            <div className="absolute inset-0 rounded-t-full pointer-events-none ring-1 ring-inset ring-ink/10" />
           </motion.div>
         </div>
       </div>
 
-      {/* Hero Footnote Bar with Locomotive Parallax Speed */}
-      <motion.div
-        data-scroll
-        data-scroll-speed="1.2"
-        initial={prefersReducedMotion ? false : { opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        className="mt-16 pt-6 border-t border-editorial-border/60 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-editorial-muted"
-      >
-        <div className="flex items-center gap-6">
-          <span>00 / INTRO</span>
-          <span className="hidden sm:inline text-editorial-border">•</span>
-          <span className="hidden sm:inline">DATA ANALYST & APPLIED ML</span>
-          <span className="hidden md:inline text-editorial-border">•</span>
-          <span className="hidden md:inline text-editorial-accent/90">ENGINE: LOCOMOTIVE V5</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span>SCROLL FOR ANALYSIS</span>
-          <span className="text-editorial-accent animate-bounce">↓</span>
-        </div>
-      </motion.div>
+      {/* 3. Lower Dossier: Left column (role, narrative, button) & Right column (stacked social pills) */}
+      <div className="relative z-20 mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-end pt-8 border-t border-border-light">
+        {/* Left Column: Role, Description & View Projects Pill */}
+        <motion.div
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="md:col-span-7 lg:col-span-8 flex flex-col items-start gap-4"
+        >
+          <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-ink font-semibold">
+            <span className="w-2 h-2 rounded-full bg-gold" />
+            <span>Data Analyst &amp; Data Scientist (aspiring)</span>
+          </div>
+
+          <p className="font-sans text-base sm:text-lg text-ink/75 max-w-xl leading-relaxed">
+            {personalInfo.heroDescription}
+          </p>
+
+          <div className="pt-2">
+            <button
+              onClick={() => scrollTo('#projects')}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink text-paper hover:bg-gold hover:text-ink font-sans font-semibold text-xs tracking-wider uppercase transition-colors duration-200 cursor-pointer shadow-sm group"
+            >
+              <span>View Projects</span>
+              <ArrowUpRight
+                size={14}
+                className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </button>
+          </div>
+        </motion.div>
+
+        {/* Right Column: Stacked Social Pills with Authentic Icons */}
+        <motion.div
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="md:col-span-5 lg:col-span-4 flex flex-col gap-2.5 items-stretch md:items-end"
+        >
+          <span className="font-mono text-[10px] uppercase tracking-widest text-ink/50 mb-1 self-start md:self-end">
+            Connect &amp; Telemetry
+          </span>
+
+          {/* GitHub Pill */}
+          <a
+            href={personalInfo.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full md:w-auto inline-flex items-center justify-between gap-4 px-4 py-2.5 rounded-full border border-border-light bg-paper hover:border-ink hover:bg-ink hover:text-paper text-ink transition-all duration-200 group text-xs font-mono"
+          >
+            <div className="flex items-center gap-2.5">
+              <SiGithub size={14} color="currentColor" />
+              <span>GitHub</span>
+            </div>
+            <ArrowUpRight
+              size={13}
+              className="text-ink/60 group-hover:text-paper transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </a>
+
+          {/* LinkedIn Pill */}
+          <a
+            href={personalInfo.linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full md:w-auto inline-flex items-center justify-between gap-4 px-4 py-2.5 rounded-full border border-border-light bg-paper hover:border-ink hover:bg-ink hover:text-paper text-ink transition-all duration-200 group text-xs font-mono"
+          >
+            <div className="flex items-center gap-2.5">
+              <DeviconLinkedIn className="w-3.5 h-3.5 fill-current" />
+              <span>LinkedIn</span>
+            </div>
+            <ArrowUpRight
+              size={13}
+              className="text-ink/60 group-hover:text-paper transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </a>
+
+          {/* Email Pill */}
+          <a
+            href={`mailto:${personalInfo.email}`}
+            className="w-full md:w-auto inline-flex items-center justify-between gap-4 px-4 py-2.5 rounded-full border border-border-light bg-paper hover:border-ink hover:bg-ink hover:text-paper text-ink transition-all duration-200 group text-xs font-mono"
+          >
+            <div className="flex items-center gap-2.5">
+              <Mail size={14} />
+              <span>Email</span>
+            </div>
+            <ArrowUpRight
+              size={13}
+              className="text-ink/60 group-hover:text-paper transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </a>
+        </motion.div>
+      </div>
     </section>
   );
 };

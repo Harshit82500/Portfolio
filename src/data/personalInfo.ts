@@ -30,8 +30,8 @@ export const personalInfo: PersonalInfo = {
   surname: "Vishwakarma",
   fullName: "Harshit Vishwakarma",
   monogram: "HV",
-  roleHeadline: "Data Analyst / Data Scientist / ML",
-  staticRoleLine: "Data Analyst / Data Scientist / ML",
+  roleHeadline: "Data Analyst & Data Scientist (aspiring)",
+  staticRoleLine: "Data Analyst & Data Scientist (aspiring)",
   isAvailableForWork: false, // Defaults to OFF as instructed
   availabilityStatusText: "Focused on Research & Projects",
   heroHeadline: "Designing actionable data intelligence through rigorous analysis & machine learning.",

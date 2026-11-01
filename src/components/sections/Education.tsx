@@ -1,70 +1,82 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { SectionHeader } from '../ui/SectionHeader';
 import { educationData } from '../../data/education';
-import { BookOpen, Award } from 'lucide-react';
-import { SectionReveal } from '../motion/SectionReveal';
+import { GraduationCap, Award, MapPin } from 'lucide-react';
+import { useScroll } from '../../context/scrollTypes';
 
 export const Education: React.FC = () => {
+  const { prefersReducedMotion } = useScroll();
+
   return (
-    <section id="education" aria-label="Education" className="scroll-mt-24">
+    <section id="education" aria-label="Education" className="scroll-mt-24 pt-8">
+      {/* Section Header */}
       <SectionHeader
         number="05"
         label="Academic Foundation"
-        headline="Formal degree studies & engineering curriculum."
-        description="Grounded in computer science fundamentals, algorithm complexity, data structures, and statistical computing."
+        headline="Formal engineering degree & computing laboratory practice."
+        description="Grounded in computer science theory, algorithms, database systems, and statistical machine learning."
+        watermark="STUDIES"
       />
 
-      <SectionReveal className="grid grid-cols-1 gap-6">
-        {educationData.map((edu) => (
-          <div
+      <div className="flex flex-col">
+        {educationData.map((edu, index) => (
+          <motion.div
             key={edu.id}
-            data-scroll
-            data-scroll-speed="0.1"
-            className="p-8 border border-editorial-border bg-editorial-surface grid grid-cols-1 lg:grid-cols-12 gap-8 items-start loco-skew"
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.1,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="rounded-2xl border border-border-light bg-paper p-8 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start shadow-xs hover:border-ink/20 transition-all duration-300"
           >
-            {/* Degree & Institution (5 cols) */}
-            <div className="lg:col-span-5 flex flex-col gap-2">
-              <span className="font-mono text-xs text-editorial-accent tracking-widest uppercase">
-                {edu.period}
-              </span>
-              <h3 className="font-serif text-3xl text-editorial-text leading-tight">
-                {edu.degree}
-              </h3>
-              <p className="font-mono text-xs uppercase tracking-wider text-editorial-muted">
-                {edu.fieldOfStudy}
-              </p>
-              <div className="flex items-center gap-2 mt-2 text-xs font-mono text-editorial-text">
-                <BookOpen size={13} className="text-editorial-muted" />
-                <span>{edu.institution}</span>
+            {/* Degree, Institution & Timeline (5 cols) */}
+            <div className="lg:col-span-5 flex flex-col gap-3">
+              <div className="flex items-center gap-2 font-mono text-xs text-gold font-semibold">
+                <GraduationCap size={15} />
+                <span>{edu.period}</span>
               </div>
 
-              {edu.metricsPlaceholder && (
-                <div className="mt-4 p-3 border border-editorial-border/60 bg-editorial-bg text-[11px] font-mono text-editorial-accent/90">
-                  <span>Score: {edu.metricsPlaceholder}</span>
-                </div>
-              )}
+              <h3 className="font-sans font-bold text-2xl sm:text-3xl text-ink leading-tight">
+                {edu.degree}
+              </h3>
+
+              <p className="font-sans text-sm font-semibold uppercase tracking-wider text-ink/75">
+                {edu.fieldOfStudy}
+              </p>
+
+              <div className="flex items-center gap-2 pt-2 text-xs font-mono text-ink/65 border-t border-border-light/60">
+                <MapPin size={13} className="text-gold" />
+                <span>
+                  {edu.institution}, {edu.location}
+                </span>
+              </div>
             </div>
 
-            {/* Coursework & Labs (7 cols) */}
-            <div className="lg:col-span-7 flex flex-col gap-3">
-              <span className="font-mono text-[11px] uppercase tracking-widest text-editorial-muted">
-                Curriculum Focus & Practical Laboratories
+            {/* Curriculum Focus & Labs (7 cols) */}
+            <div className="lg:col-span-7 flex flex-col gap-4 border-t lg:border-t-0 lg:border-l border-border-light lg:pl-8 pt-6 lg:pt-0">
+              <span className="font-mono text-xs uppercase tracking-wider text-ink/50">
+                Coursework Disciplines &amp; Practical Training
               </span>
-              <ul className="flex flex-col gap-2.5">
+
+              <ul className="flex flex-col gap-3">
                 {edu.details?.map((detail, idx) => (
                   <li
                     key={idx}
-                    className="text-sm text-editorial-muted font-sans flex items-start gap-3 leading-relaxed"
+                    className="text-xs sm:text-sm text-ink/75 font-sans flex items-start gap-3 leading-relaxed"
                   >
-                    <Award size={14} className="text-editorial-accent shrink-0 mt-1" />
+                    <Award size={15} className="text-gold shrink-0 mt-0.5" />
                     <span>{detail}</span>
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </SectionReveal>
+      </div>
     </section>
   );
 };

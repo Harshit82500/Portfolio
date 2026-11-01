@@ -11,17 +11,17 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="relative min-h-screen bg-editorial-bg text-editorial-text flex flex-col selection:bg-editorial-accent selection:text-editorial-surface-deep">
+    <div className="relative min-h-screen bg-paper text-ink flex flex-col selection:bg-gold selection:text-ink">
       {/* Accessibility Skip Link */}
       <SkipToContent />
 
-      {/* Film Grain Texture Overlay */}
+      {/* Subtle Texture Overlay */}
       <FilmGrain />
 
       {/* Desktop Custom Cursor */}
       <CustomCursor />
 
-      {/* Fixed Editorial Navbar */}
+      {/* Fixed Navbar */}
       <Navbar />
 
       {/* Main Page Content */}
@@ -29,7 +29,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
 
-      {/* Editorial Footer */}
+      {/* Footer */}
       <Footer />
     </div>
   );

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { personalInfo } from '../../data/personalInfo';
-import { useScroll } from '../../context/scrollTypes';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, ArrowUpRight } from 'lucide-react';
 import { SiGithub } from '@icons-pack/react-simple-icons';
 import { DeviconLinkedIn } from '../icons/DeviconLinkedIn';
+import { personalInfo } from '../../data/personalInfo';
+import { useScroll } from '../../context/scrollTypes';
 
 export const Footer: React.FC = () => {
   const { scrollTo } = useScroll();
@@ -29,98 +29,133 @@ export const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer className="border-t border-editorial-border bg-editorial-surface-deep text-editorial-muted text-xs font-mono pt-16 pb-12 mt-32 relative overflow-hidden">
-      {/* Locomotive Grand Curtain Reveal Typography */}
-      <div
-        data-scroll
-        data-scroll-speed="-2"
-        aria-hidden="true"
-        className="w-full overflow-hidden select-none border-b border-editorial-border/40 pb-8 mb-12 text-center"
-      >
-        <span className="font-serif italic text-5xl sm:text-7xl lg:text-[9vw] text-editorial-text/[0.04] tracking-tight leading-none uppercase block">
-          HARSHIT VISHWAKARMA
-        </span>
-      </div>
+    <footer className="border-t border-border-light bg-paper text-ink pt-16 sm:pt-20 pb-12 mt-24 sm:mt-32 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col gap-12 sm:gap-16">
+        {/* Top: Huge Geometric Wordmark */}
+        <div className="border-b border-border-light pb-8 select-none">
+          <span className="font-sans font-extrabold tracking-tighter text-4xl sm:text-6xl md:text-7xl lg:text-[7.5vw] leading-none uppercase block text-ink">
+            {personalInfo.fullName}
+          </span>
+        </div>
 
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col gap-12">
-        {/* Top Tier: Colophon & Editorial Masthead */}
+        {/* Middle Tier: Colophon, Navigation & Socials */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          {/* Colophon & Mission (5 cols) */}
           <div className="md:col-span-5 flex flex-col gap-3">
             <div className="flex items-center gap-2">
-              <span className="font-serif italic text-2xl text-editorial-text">
-                {personalInfo.fullName}
+              <span className="font-sans font-bold text-lg text-ink">
+                Data Analyst &amp; Applied ML Developer
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-editorial-accent" />
+              <span className="w-1.5 h-1.5 rounded-full bg-gold" />
             </div>
-            <p className="text-sm font-sans text-editorial-muted leading-relaxed max-w-sm">
-              Data Analyst & Machine Learning Developer. Focused on calibrated models, statistical honesty, and clean architecture.
+            <p className="text-sm font-sans text-ink/70 leading-relaxed max-w-sm">
+              Designing actionable quantitative intelligence through rigorous exploratory analysis, predictive modeling, and verified metrics.
             </p>
+            <div className="pt-2 font-mono text-xs text-ink/50">
+              <span>Local Station Time: </span>
+              <span className="text-ink font-medium">{timeStr ? `${timeStr} IST` : 'CALCULATING...'}</span>
+            </div>
           </div>
 
-          <div className="md:col-span-4 flex flex-col gap-2">
-            <span className="text-editorial-text uppercase tracking-widest text-[11px]">
-              System Colophon
+          {/* Nav Links (3 cols) */}
+          <div className="md:col-span-3 flex flex-col gap-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-ink/50 font-semibold">
+              Navigation
             </span>
-            <p className="text-[11px] leading-relaxed text-editorial-muted">
-              Engineered with React 19, TypeScript, Tailwind CSS, Motion, and Locomotive Scroll v5. Typeset in Instrument Serif and Inter. Zero tracking telemetry.
-            </p>
+            <div className="flex flex-col gap-2 font-sans text-sm font-medium text-ink">
+              <button
+                onClick={() => scrollTo('#projects')}
+                className="text-left hover:text-gold transition-colors cursor-pointer"
+              >
+                Selected Work
+              </button>
+              <button
+                onClick={() => scrollTo('#what-i-do')}
+                className="text-left hover:text-gold transition-colors cursor-pointer"
+              >
+                What I Do
+              </button>
+              <button
+                onClick={() => scrollTo('#experience')}
+                className="text-left hover:text-gold transition-colors cursor-pointer"
+              >
+                Trajectory &amp; Experience
+              </button>
+              <button
+                onClick={() => scrollTo('#skills')}
+                className="text-left hover:text-gold transition-colors cursor-pointer"
+              >
+                Skills &amp; Credentials
+              </button>
+              <button
+                onClick={() => scrollTo('#education')}
+                className="text-left hover:text-gold transition-colors cursor-pointer"
+              >
+                Education
+              </button>
+              <button
+                onClick={() => scrollTo('#contact')}
+                className="text-left hover:text-gold transition-colors cursor-pointer"
+              >
+                Contact
+              </button>
+            </div>
           </div>
 
-          <div className="md:col-span-3 flex flex-col gap-3 md:items-end">
-            <div className="flex flex-col md:items-end">
-              <span className="text-editorial-text uppercase tracking-widest text-[11px]">
-                Local Time
+          {/* Socials & Back to Top (4 cols) */}
+          <div className="md:col-span-4 flex flex-col justify-between h-full gap-6 md:items-end">
+            <div className="flex flex-col md:items-end gap-2.5">
+              <span className="font-mono text-xs uppercase tracking-widest text-ink/50 font-semibold">
+                Social Telemetry
               </span>
-              <span className="text-sm text-editorial-text font-mono mt-1">
-                {timeStr ? `${timeStr} IST (UTC+5:30)` : 'CALCULATING...'}
-              </span>
+              <div className="flex flex-col md:items-end gap-2 text-sm font-sans font-medium text-ink">
+                <a
+                  href={personalInfo.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gold transition-colors flex items-center gap-1.5"
+                >
+                  <SiGithub size={13} color="currentColor" />
+                  <span>GitHub</span>
+                  <ArrowUpRight size={12} />
+                </a>
+                <a
+                  href={personalInfo.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gold transition-colors flex items-center gap-1.5"
+                >
+                  <DeviconLinkedIn className="w-3.5 h-3.5 fill-current" />
+                  <span>LinkedIn</span>
+                  <ArrowUpRight size={12} />
+                </a>
+                <a
+                  href={`mailto:${personalInfo.email}`}
+                  className="hover:text-gold transition-colors flex items-center gap-1.5"
+                >
+                  <span>Email Transmission</span>
+                  <ArrowUpRight size={12} />
+                </a>
+              </div>
             </div>
 
             <button
               onClick={() => scrollTo(0)}
-              className="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 border border-editorial-border text-editorial-text hover:border-editorial-accent hover:text-editorial-accent uppercase tracking-widest text-[11px] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border-light hover:border-ink hover:bg-ink hover:text-paper text-ink text-xs font-sans font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-2xs self-start md:self-end"
             >
               <span>Back to Top</span>
-              <ArrowUp size={12} />
+              <ArrowUp size={13} />
             </button>
           </div>
         </div>
 
-        {/* Bottom Tier: Copyright & Quick Links */}
-        <div className="pt-8 border-t border-editorial-border/60 flex flex-wrap items-center justify-between gap-4 text-[11px]">
+        {/* Bottom Tier: Copyright */}
+        <div className="pt-8 border-t border-border-light flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-ink/60">
           <div>
             © 2026 {personalInfo.fullName}. All rights reserved.
           </div>
-
-          <div className="flex items-center gap-6">
-            <a
-              href={personalInfo.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-editorial-text transition-colors flex items-center gap-1.5"
-            >
-              <SiGithub size={13} color="currentColor" />
-              <span>GitHub</span>
-            </a>
-            {personalInfo.linkedinUrl && !personalInfo.linkedinUrl.startsWith('[ADD') && (
-              <a
-                href={personalInfo.linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-editorial-text transition-colors flex items-center gap-1.5"
-              >
-                <DeviconLinkedIn size={13} color="currentColor" />
-                <span>LinkedIn</span>
-              </a>
-            )}
-            <a
-              href={personalInfo.resumeDownloadUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-editorial-text transition-colors"
-            >
-              Resume
-            </a>
+          <div>
+            Typography in Plus Jakarta Sans. Zero speculative telemetry.
           </div>
         </div>
       </div>

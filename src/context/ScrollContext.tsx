@@ -114,7 +114,7 @@ export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   useEffect(() => {
     if (location.pathname !== '/') return;
 
-    const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'education', 'certifications', 'contact'];
+    const sections = ['hero', 'projects', 'what-i-do', 'experience', 'skills', 'education', 'contact'];
     const observerOptions = {
       root: null,
       rootMargin: '-20% 0px -60% 0px',

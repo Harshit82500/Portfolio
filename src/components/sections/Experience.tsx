@@ -1,90 +1,172 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Calendar, MapPin, ArrowUpRight } from 'lucide-react';
 import { SectionHeader } from '../ui/SectionHeader';
-import { experienceData } from '../../data/experience';
-import { Badge } from '../ui/Badge';
-import { MapPin, Calendar } from 'lucide-react';
-import { SectionReveal } from '../motion/SectionReveal';
+import { experienceData, type ExperienceItem } from '../../data/experience';
+import { useScroll } from '../../context/scrollTypes';
 
 export const Experience: React.FC = () => {
+  const [hoveredExp, setHoveredExp] = useState<ExperienceItem | null>(null);
+  const [mousePos, setMousePos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const { prefersReducedMotion } = useScroll();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsTouchDevice(window.matchMedia('(pointer: coarse)').matches);
+    }
+  }, []);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (isTouchDevice || prefersReducedMotion) return;
+    setMousePos({ x: e.clientX, y: e.clientY });
+  };
+
   return (
-    <section id="experience" aria-label="Experience & Trajectory" className="scroll-mt-24">
-      <SectionHeader
-        number="04"
-        label="Trajectory & Experience"
-        headline="Academic, project & engineering background."
-        description="A chronological record of technical initiatives, machine learning implementations, and laboratory projects. No inflated corporate titles."
-      />
+    <section
+      ref={sectionRef}
+      id="experience"
+      aria-label="Experience & Trajectory"
+      onMouseMove={handleMouseMove}
+      className="scroll-mt-24 -mx-5 sm:-mx-8 lg:-mx-12 px-5 sm:px-8 lg:px-12 py-20 sm:py-28 my-16 sm:my-24 bg-ink text-paper relative overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header (Dark Mode with Faint Watermark) */}
+        <SectionHeader
+          number="03"
+          label="Experience"
+          headline="Chronological trajectory & applied analytics practice."
+          description="Verified internships and practical system implementations. Every milestone is empirically grounded with zero fabricated titles."
+          watermark="CAREER"
+          dark
+        />
 
-      <SectionReveal className="flex flex-col border-t border-editorial-border">
-        {experienceData.map((item, idx) => {
-          const isPending = item.role.startsWith('[ADD');
+        {/* Experience Rows */}
+        <div className="flex flex-col border-t border-border-dark mt-8">
+          {experienceData.map((item, index) => {
+            const isPlaceholder = item.isPlaceholder || item.role.startsWith('[ADD');
 
-          return (
-            <div
-              key={item.id}
-              data-scroll
-              data-scroll-speed={idx % 2 === 0 ? "0.15" : "-0.15"}
-              className="py-10 border-b border-editorial-border grid grid-cols-1 lg:grid-cols-12 gap-8 items-start group loco-skew hover:bg-editorial-surface/40 transition-colors duration-300"
-            >
-              {/* Period & Organization (4 cols) */}
-              <div className="lg:col-span-4 flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-xs font-mono text-editorial-muted">
-                  <Calendar size={13} className="text-editorial-accent" />
-                  <span>{item.period}</span>
-                  <span className="text-editorial-border">/</span>
-                  <Badge variant="subtle" className="text-[10px]">
+            return (
+              <motion.div
+                key={item.id}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                onMouseEnter={() => !isTouchDevice && setHoveredExp(item)}
+                onMouseLeave={() => !isTouchDevice && setHoveredExp(null)}
+                className={`py-8 sm:py-10 border-b border-border-dark grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start transition-colors duration-200 group cursor-default ${
+                  isPlaceholder ? 'opacity-70 hover:opacity-100' : 'hover:bg-white/[0.02]'
+                }`}
+              >
+                {/* 1. Period & Type (3 cols) */}
+                <div className="lg:col-span-3 flex flex-col gap-1.5">
+                  <div className="flex items-center gap-2 font-mono text-xs text-gold">
+                    <Calendar size={13} />
+                    <span>{item.period}</span>
+                  </div>
+                  <span className="font-mono text-[11px] text-paper/50 uppercase tracking-wider">
                     {item.type}
-                  </Badge>
+                  </span>
                 </div>
 
-                <h3 className={`font-serif text-2xl sm:text-3xl text-editorial-text mt-1 ${isPending ? 'text-editorial-accent/90 font-mono text-lg' : ''}`}>
-                  {item.role}
-                </h3>
+                {/* 2. Organization & Role (5 cols) */}
+                <div className="lg:col-span-5 flex flex-col gap-2">
+                  <h3
+                    className={`font-sans font-bold text-2xl sm:text-3xl text-paper tracking-tight group-hover:text-gold transition-colors duration-200 ${
+                      isPlaceholder ? 'font-mono text-xl text-gold/90' : ''
+                    }`}
+                  >
+                    {item.role}
+                  </h3>
 
-                <div className="flex items-center gap-2 text-xs font-mono text-editorial-muted">
-                  <span className="text-editorial-text">{item.organization}</span>
-                  <span className="text-editorial-border">•</span>
-                  <div className="flex items-center gap-1">
-                    <MapPin size={11} />
-                    <span>{item.location}</span>
+                  <div className="flex items-center gap-2 font-mono text-xs text-paper/60">
+                    <span className="text-paper/90 font-medium">{item.organization}</span>
+                    <span>•</span>
+                    <div className="flex items-center gap-1">
+                      <MapPin size={11} />
+                      <span>{item.location}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Highlights & Tech Stack (8 cols) */}
-              <div className="lg:col-span-8 flex flex-col gap-4">
-                <ul className="flex flex-col gap-2.5">
-                  {item.highlights.map((highlight, hIdx) => {
-                    const isHighlightPending = highlight.startsWith('[ADD');
-                    return (
+                {/* 3. Highlights & Tech (4 cols) */}
+                <div className="lg:col-span-4 flex flex-col gap-3">
+                  <ul className="flex flex-col gap-2">
+                    {item.highlights.map((highlight, hIdx) => (
                       <li
                         key={hIdx}
-                        className={`text-sm sm:text-base text-editorial-muted font-sans flex items-start gap-3 leading-relaxed ${
-                          isHighlightPending ? 'font-mono text-xs text-editorial-accent/90' : ''
+                        className={`text-xs sm:text-sm text-paper/75 font-sans leading-relaxed flex items-start gap-2.5 ${
+                          highlight.startsWith('[ADD') ? 'font-mono text-gold/80 text-xs' : ''
                         }`}
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-editorial-accent mt-2 shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-1.5" />
                         <span>{highlight}</span>
                       </li>
-                    );
-                  })}
-                </ul>
+                    ))}
+                  </ul>
 
-                <div className="flex flex-wrap items-center gap-1.5 pt-4 border-t border-editorial-border/60">
-                  {item.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-0.5 text-[10px] font-mono border border-editorial-border/60 text-editorial-muted bg-editorial-surface"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {/* Tech stack badges */}
+                  <div className="flex flex-wrap items-center gap-1.5 pt-2">
+                    {item.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-0.5 rounded-full border border-border-dark text-[10px] font-mono text-paper/60 bg-white/5"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Floating Tilted Cursor-Following Preview Thumbnail (Desktop Only) */}
+      <AnimatePresence>
+        {hoveredExp && !isTouchDevice && !prefersReducedMotion && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85, rotate: -4 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              rotate: 3,
+              x: mousePos.x + 24,
+              y: mousePos.y - 120,
+            }}
+            exit={{ opacity: 0, scale: 0.85, rotate: -4 }}
+            transition={{ type: 'spring', damping: 25, stiffness: 220, mass: 0.15 }}
+            style={{ position: 'fixed', top: 0, left: 0 }}
+            className="pointer-events-none z-50 w-64 aspect-[16/10] rounded-xl overflow-hidden border border-gold/40 bg-slate shadow-2xl p-4 flex flex-col justify-between text-paper"
+          >
+            <div className="flex items-center justify-between border-b border-border-dark pb-2 text-[10px] font-mono uppercase tracking-wider text-gold">
+              <span>EXPERIENCE PREVIEW</span>
+              <ArrowUpRight size={12} />
             </div>
-          );
-        })}
-      </SectionReveal>
+
+            <div className="flex flex-col my-auto">
+              <span className="font-sans font-bold text-base text-paper line-clamp-1">
+                {hoveredExp.organization}
+              </span>
+              <span className="font-mono text-xs text-paper/60 line-clamp-1 mt-0.5">
+                {hoveredExp.role}
+              </span>
+            </div>
+
+            <div className="flex items-center justify-between text-[9px] font-mono text-paper/40 pt-2 border-t border-border-dark">
+              <span>{hoveredExp.period}</span>
+              <span className="text-gold">{hoveredExp.type}</span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
