@@ -12,9 +12,9 @@ export const Badge: React.FC<BadgeProps> = ({
   className = '',
 }) => {
   const variantStyles = {
-    neutral: 'border border-[rgba(236,231,221,0.14)] text-[#8A857B] bg-[#141311]',
-    accent: 'border border-[rgba(255,75,43,0.3)] text-[#FF4B2B] bg-[rgba(255,75,43,0.06)]',
-    subtle: 'border border-[rgba(236,231,221,0.08)] text-[#8A857B]/80 bg-transparent',
+    neutral: 'border border-editorial-border text-editorial-muted bg-editorial-surface',
+    accent: 'border border-editorial-accent/30 text-editorial-accent bg-editorial-accent/10',
+    subtle: 'border border-editorial-border/60 text-editorial-muted/80 bg-transparent',
   }[variant];
 
   return (

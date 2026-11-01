@@ -12,28 +12,29 @@
 export const tokens = {
   colors: {
     // Primary palette
-    background: '#0F0E0C',
-    backgroundSubtle: '#141311',
-    backgroundElevated: '#181715',
-    text: '#ECE7DD',
-    textMuted: '#8A857B',
-    textDim: '#5A564F',
+    background: '#0B1210',
+    surface: '#121C18',
+    backgroundSubtle: '#121C18',
+    backgroundElevated: '#17231E',
+    text: '#E8E4D8',
+    textMuted: '#7F8C84',
+    textDim: '#5A665E',
 
     // Hairline borders
-    border: 'rgba(236, 231, 221, 0.12)',
-    borderHover: 'rgba(236, 231, 221, 0.28)',
-    borderStrong: 'rgba(236, 231, 221, 0.40)',
+    border: 'rgba(232, 228, 216, 0.12)',
+    borderHover: 'rgba(232, 228, 216, 0.28)',
+    borderStrong: 'rgba(232, 228, 216, 0.40)',
 
     // Singular accent (used strictly for interactive signals, small focal points)
-    accent: '#FF4B2B',
-    accentHover: '#FF6447',
-    accentMuted: 'rgba(255, 75, 43, 0.15)',
-    accentBorder: 'rgba(255, 75, 43, 0.35)',
+    accent: '#C9F27A',
+    accentHover: '#D6F594',
+    accentMuted: 'rgba(201, 242, 122, 0.15)',
+    accentBorder: 'rgba(201, 242, 122, 0.35)',
 
     // Utility & status
-    success: '#4ADE80',
+    success: '#C9F27A',
     error: '#F87171',
-    surfaceOverlay: 'rgba(15, 14, 12, 0.85)',
+    surfaceOverlay: 'rgba(11, 18, 16, 0.85)',
   },
 
   typography: {
@@ -66,7 +67,7 @@ export const tokens = {
       desktop: '4rem',    // px-16
       wide: '6rem',       // px-24
     },
-    hairline: '1px solid rgba(236, 231, 221, 0.12)',
+    hairline: '1px solid rgba(232, 228, 216, 0.12)',
   },
 
   motion: {

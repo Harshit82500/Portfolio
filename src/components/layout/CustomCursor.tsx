@@ -61,7 +61,7 @@ export const CustomCursor: React.FC = () => {
       {/* Central precise dot */}
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none fixed top-0 left-0 z-[10000] w-2 h-2 rounded-full bg-[#ECE7DD] -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
+        className="pointer-events-none fixed top-0 left-0 z-[10000] w-2 h-2 rounded-full bg-editorial-text -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
         animate={{
           x: pos.x,
           y: pos.y,
@@ -77,14 +77,14 @@ export const CustomCursor: React.FC = () => {
       {/* Trailing hairline editorial ring */}
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none fixed top-0 left-0 z-[9999] rounded-full border border-[rgba(236,231,221,0.45)] -translate-x-1/2 -translate-y-1/2"
+        className="pointer-events-none fixed top-0 left-0 z-[9999] rounded-full border border-editorial-border -translate-x-1/2 -translate-y-1/2"
         animate={{
           x: pos.x,
           y: pos.y,
           width: isHovered ? 52 : 32,
           height: isHovered ? 52 : 32,
-          borderColor: isHovered ? '#FF4B2B' : 'rgba(236,231,221,0.3)',
-          backgroundColor: isHovered ? 'rgba(255, 75, 43, 0.08)' : 'rgba(0,0,0,0)',
+          borderColor: isHovered ? 'var(--color-editorial-accent, #C9F27A)' : 'var(--color-editorial-border, rgba(232, 228, 216, 0.2))',
+          backgroundColor: isHovered ? 'rgba(201, 242, 122, 0.08)' : 'transparent',
         }}
         transition={{
           type: 'spring',

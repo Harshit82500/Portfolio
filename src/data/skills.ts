@@ -111,7 +111,7 @@ export const skillsData: Skill[] = [
     category: 'Backend & Tools',
     iconType: 'simple-icon',
     iconKey: 'SiFlask',
-    brandColor: '#ECE7DD',
+    brandColor: '#E8E4D8',
     proficiency: 'Comfortable',
   },
   {
@@ -135,7 +135,7 @@ export const skillsData: Skill[] = [
     category: 'Backend & Tools',
     iconType: 'simple-icon',
     iconKey: 'SiGithub',
-    brandColor: '#ECE7DD',
+    brandColor: '#E8E4D8',
     proficiency: 'Comfortable',
   },
   {

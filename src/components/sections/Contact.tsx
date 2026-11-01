@@ -131,26 +131,26 @@ export const Contact: React.FC = () => {
         {/* Left Dossier & Direct Channels (5 cols, Locomotive Sticky) */}
         <div className="lg:col-span-5 flex flex-col justify-between lg:sticky lg:top-28">
           <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-[#FF4B2B] block mb-4">
+            <span className="font-mono text-xs uppercase tracking-widest text-editorial-accent block mb-4">
               Direct Channels
             </span>
-            <p className="text-base text-[#8A857B] font-sans leading-relaxed mb-8">
+            <p className="text-base text-editorial-muted font-sans leading-relaxed mb-8">
               Whether you have an inquiry regarding predictive modeling, dataset architecture, or potential career roles, feel free to send a direct message.
             </p>
 
             <div className="flex flex-col gap-4">
               {/* Email */}
-              <div className="p-4 border border-[rgba(236,231,221,0.12)] bg-[#141311]">
-                <div className="flex items-center gap-2 text-xs font-mono text-[#8A857B] uppercase mb-1">
-                  <Mail size={13} className="text-[#FF4B2B]" />
+              <div className="p-4 border border-editorial-border bg-editorial-surface">
+                <div className="flex items-center gap-2 text-xs font-mono text-editorial-muted uppercase mb-1">
+                  <Mail size={13} className="text-editorial-accent" />
                   <span>Electronic Mail</span>
                 </div>
                 {personalInfo.email.startsWith('[ADD') ? (
-                  <span className="font-mono text-xs text-[#FF4B2B]/90">{personalInfo.email}</span>
+                  <span className="font-mono text-xs text-editorial-accent/90">{personalInfo.email}</span>
                 ) : (
                   <a
                     href={`mailto:${personalInfo.email}`}
-                    className="font-serif text-lg text-[#ECE7DD] hover:text-[#FF4B2B] transition-colors"
+                    className="font-serif text-lg text-editorial-text hover:text-editorial-accent transition-colors"
                   >
                     {personalInfo.email}
                   </a>
@@ -162,34 +162,34 @@ export const Contact: React.FC = () => {
                 href={personalInfo.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 border border-[rgba(236,231,221,0.12)] bg-[#141311] hover:border-[rgba(236,231,221,0.28)] transition-all flex items-center justify-between group"
+                className="p-4 border border-editorial-border bg-editorial-surface hover:border-editorial-accent/40 transition-all flex items-center justify-between group"
               >
                 <div>
-                  <div className="flex items-center gap-2 text-xs font-mono text-[#8A857B] uppercase mb-1">
-                    <SiGithub size={13} color="#FF4B2B" />
+                  <div className="flex items-center gap-2 text-xs font-mono text-editorial-muted uppercase mb-1">
+                    <SiGithub size={13} color="currentColor" className="text-editorial-accent" />
                     <span>Version Control</span>
                   </div>
-                  <span className="font-serif text-lg text-[#ECE7DD] group-hover:text-[#FF4B2B] transition-colors">
+                  <span className="font-serif text-lg text-editorial-text group-hover:text-editorial-accent transition-colors">
                     github.com/Harshit82500
                   </span>
                 </div>
-                <ArrowUpRight size={16} className="text-[#8A857B] group-hover:text-[#FF4B2B] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight size={16} className="text-editorial-muted group-hover:text-editorial-accent transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
 
               {/* LinkedIn */}
-              <div className="p-4 border border-[rgba(236,231,221,0.12)] bg-[#141311]">
-                <div className="flex items-center gap-2 text-xs font-mono text-[#8A857B] uppercase mb-1">
-                  <DeviconLinkedIn size={14} color="#FF4B2B" />
+              <div className="p-4 border border-editorial-border bg-editorial-surface">
+                <div className="flex items-center gap-2 text-xs font-mono text-editorial-muted uppercase mb-1">
+                  <DeviconLinkedIn size={14} color="currentColor" className="text-editorial-accent" />
                   <span>Professional Network</span>
                 </div>
                 {personalInfo.linkedinUrl.startsWith('[ADD') ? (
-                  <span className="font-mono text-xs text-[#FF4B2B]/90">{personalInfo.linkedinUrl}</span>
+                  <span className="font-mono text-xs text-editorial-accent/90">{personalInfo.linkedinUrl}</span>
                 ) : (
                   <a
                     href={personalInfo.linkedinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-serif text-lg text-[#ECE7DD] hover:text-[#FF4B2B] transition-colors inline-flex items-center gap-1"
+                    className="font-serif text-lg text-editorial-text hover:text-editorial-accent transition-colors inline-flex items-center gap-1"
                   >
                     <span>View LinkedIn Profile</span>
                     <ArrowUpRight size={14} />
@@ -199,7 +199,7 @@ export const Contact: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-8 pt-6 border-t border-[rgba(236,231,221,0.08)] text-xs font-mono text-[#8A857B]">
+          <div className="mt-8 pt-6 border-t border-editorial-border/60 text-xs font-mono text-editorial-muted">
             <span>ENCRYPTION & PRIVACY: No telemetry cookies or trackers are embedded.</span>
           </div>
         </div>
@@ -208,7 +208,7 @@ export const Contact: React.FC = () => {
         <div className="lg:col-span-7">
           <form
             onSubmit={handleSubmit}
-            className="p-8 sm:p-10 border border-[rgba(236,231,221,0.14)] bg-[#141311] flex flex-col gap-6"
+            className="p-8 sm:p-10 border border-editorial-border bg-editorial-surface flex flex-col gap-6"
             noValidate
           >
             {/* Hidden honeypot field (anti-spam bot trap) */}
@@ -230,9 +230,9 @@ export const Contact: React.FC = () => {
               <div className="flex flex-col gap-2">
                 <label
                   htmlFor="name"
-                  className="font-mono text-xs uppercase tracking-wider text-[#8A857B]"
+                  className="font-mono text-xs uppercase tracking-wider text-editorial-muted"
                 >
-                  Your Name <span className="text-[#FF4B2B]">*</span>
+                  Your Name <span className="text-editorial-accent">*</span>
                 </label>
                 <input
                   id="name"
@@ -242,7 +242,7 @@ export const Contact: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="e.g. Jane Doe"
-                  className="px-4 py-3 bg-[#0F0E0C] border border-[rgba(236,231,221,0.14)] text-[#ECE7DD] placeholder-[#5A564F] text-sm font-sans focus-visible:outline-none focus-visible:border-[#FF4B2B]"
+                  className="px-4 py-3 bg-editorial-bg border border-editorial-border text-editorial-text placeholder-editorial-dim text-sm font-sans focus-visible:outline-none focus-visible:border-editorial-accent"
                 />
               </div>
 
@@ -250,9 +250,9 @@ export const Contact: React.FC = () => {
               <div className="flex flex-col gap-2">
                 <label
                   htmlFor="email"
-                  className="font-mono text-xs uppercase tracking-wider text-[#8A857B]"
+                  className="font-mono text-xs uppercase tracking-wider text-editorial-muted"
                 >
-                  Your Email <span className="text-[#FF4B2B]">*</span>
+                  Your Email <span className="text-editorial-accent">*</span>
                 </label>
                 <input
                   id="email"
@@ -262,7 +262,7 @@ export const Contact: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="e.g. jane@organization.com"
-                  className="px-4 py-3 bg-[#0F0E0C] border border-[rgba(236,231,221,0.14)] text-[#ECE7DD] placeholder-[#5A564F] text-sm font-sans focus-visible:outline-none focus-visible:border-[#FF4B2B]"
+                  className="px-4 py-3 bg-editorial-bg border border-editorial-border text-editorial-text placeholder-editorial-dim text-sm font-sans focus-visible:outline-none focus-visible:border-editorial-accent"
                 />
               </div>
             </div>
@@ -271,7 +271,7 @@ export const Contact: React.FC = () => {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="subject"
-                className="font-mono text-xs uppercase tracking-wider text-[#8A857B]"
+                className="font-mono text-xs uppercase tracking-wider text-editorial-muted"
               >
                 Subject
               </label>
@@ -282,7 +282,7 @@ export const Contact: React.FC = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 placeholder="e.g. Data Scientist Role Inquiry / Project Collaboration"
-                className="px-4 py-3 bg-[#0F0E0C] border border-[rgba(236,231,221,0.14)] text-[#ECE7DD] placeholder-[#5A564F] text-sm font-sans focus-visible:outline-none focus-visible:border-[#FF4B2B]"
+                className="px-4 py-3 bg-editorial-bg border border-editorial-border text-editorial-text placeholder-editorial-dim text-sm font-sans focus-visible:outline-none focus-visible:border-editorial-accent"
               />
             </div>
 
@@ -290,9 +290,9 @@ export const Contact: React.FC = () => {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="message"
-                className="font-mono text-xs uppercase tracking-wider text-[#8A857B]"
+                className="font-mono text-xs uppercase tracking-wider text-editorial-muted"
               >
-                Message <span className="text-[#FF4B2B]">*</span>
+                Message <span className="text-editorial-accent">*</span>
               </label>
               <textarea
                 id="message"
@@ -302,7 +302,7 @@ export const Contact: React.FC = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Detail the scope of inquiry, project requirements, or relevant timeline..."
-                className="px-4 py-3 bg-[#0F0E0C] border border-[rgba(236,231,221,0.14)] text-[#ECE7DD] placeholder-[#5A564F] text-sm font-sans focus-visible:outline-none focus-visible:border-[#FF4B2B] resize-none"
+                className="px-4 py-3 bg-editorial-bg border border-editorial-border text-editorial-text placeholder-editorial-dim text-sm font-sans focus-visible:outline-none focus-visible:border-editorial-accent resize-none"
               />
             </div>
 
@@ -322,7 +322,7 @@ export const Contact: React.FC = () => {
               <div
                 role="alert"
                 aria-live="polite"
-                className="p-4 border border-emerald-500/40 bg-emerald-950/20 text-emerald-400 text-xs font-mono flex items-center gap-2"
+                className="p-4 border border-editorial-accent/40 bg-editorial-accent/10 text-editorial-accent text-xs font-mono flex items-center gap-2"
               >
                 <CheckCircle2 size={16} className="shrink-0" />
                 <span>Message delivered successfully. Thank you for reaching out.</span>

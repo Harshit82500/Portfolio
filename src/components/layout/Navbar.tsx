@@ -57,10 +57,10 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0F0E0C]/90 backdrop-blur-md border-b border-[rgba(236,231,221,0.12)] transition-colors duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-editorial-bg/90 backdrop-blur-md border-b border-editorial-border transition-colors duration-300">
       {/* Locomotive Real-time Scroll Progress Hairline */}
       <div
-        className="absolute bottom-0 left-0 h-[1.5px] bg-[#FF4B2B] pointer-events-none transition-all duration-75"
+        className="absolute bottom-0 left-0 h-[1.5px] bg-editorial-accent pointer-events-none transition-all duration-75"
         style={{ width: 'calc(var(--scroll-progress, 0) * 100%)' }}
       />
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 h-18 flex items-center justify-between">
@@ -68,22 +68,22 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center gap-4">
           <button
             onClick={handleLogoClick}
-            className="flex items-center gap-2 group text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#FF4B2B]"
+            className="flex items-center gap-2 group text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-editorial-accent"
             aria-label="Scroll to top"
           >
-            <span className="font-serif italic text-2xl tracking-tight text-[#ECE7DD] group-hover:text-[#FF4B2B] transition-colors duration-200">
+            <span className="font-serif italic text-2xl tracking-tight text-editorial-text group-hover:text-editorial-accent transition-colors duration-200">
               {personalInfo.fullName}
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FF4B2B]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-editorial-accent" />
           </button>
 
           {/* Availability Status Indicator */}
-          <div className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full border border-[rgba(236,231,221,0.12)] bg-[#141311] text-[11px] font-mono tracking-wider uppercase text-[#8A857B]">
+          <div className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full border border-editorial-border bg-editorial-surface text-[11px] font-mono tracking-wider uppercase text-editorial-muted">
             <span
               className={`w-2 h-2 rounded-full ${
                 personalInfo.isAvailableForWork
-                  ? 'bg-emerald-400 animate-pulse'
-                  : 'bg-[#8A857B]'
+                  ? 'bg-editorial-accent animate-pulse'
+                  : 'bg-editorial-muted'
               }`}
             />
             <span>
@@ -103,16 +103,16 @@ export const Navbar: React.FC = () => {
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
                 className={`group flex items-baseline gap-1.5 py-2 text-xs font-mono tracking-widest transition-colors duration-200 uppercase ${
-                  isActive ? 'text-[#ECE7DD]' : 'text-[#8A857B] hover:text-[#ECE7DD]'
+                  isActive ? 'text-editorial-text' : 'text-editorial-muted hover:text-editorial-text'
                 }`}
               >
-                <span className={`text-[10px] ${isActive ? 'text-[#FF4B2B]' : 'text-[#8A857B]/60 group-hover:text-[#FF4B2B]'}`}>
+                <span className={`text-[10px] ${isActive ? 'text-editorial-accent' : 'text-editorial-muted/60 group-hover:text-editorial-accent'}`}>
                   {item.number}
                 </span>
                 <span className="relative">
                   {item.label}
                   {isActive && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-[1px] bg-[#FF4B2B]" />
+                    <span className="absolute -bottom-1 left-0 right-0 h-[1px] bg-editorial-accent" />
                   )}
                 </span>
               </button>
@@ -124,7 +124,7 @@ export const Navbar: React.FC = () => {
             href={personalInfo.resumeDownloadUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3.5 py-1.5 text-xs font-mono uppercase tracking-widest border border-[rgba(236,231,221,0.2)] text-[#ECE7DD] hover:border-[#FF4B2B] hover:text-[#FF4B2B] transition-colors duration-200"
+            className="px-3.5 py-1.5 text-xs font-mono uppercase tracking-widest border border-editorial-border text-editorial-text hover:border-editorial-accent hover:text-editorial-accent transition-colors duration-200"
           >
             Resume
           </a>
@@ -133,7 +133,7 @@ export const Navbar: React.FC = () => {
         {/* Mobile menu trigger */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-[#ECE7DD] hover:text-[#FF4B2B] focus-visible:outline-none"
+          className="md:hidden p-2 text-editorial-text hover:text-editorial-accent focus-visible:outline-none"
           aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
           aria-expanded={mobileMenuOpen}
         >
@@ -143,11 +143,11 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[rgba(236,231,221,0.12)] bg-[#0F0E0C] px-6 py-8 flex flex-col gap-6">
-          <div className="flex items-center gap-2 mb-2 pb-4 border-b border-[rgba(236,231,221,0.1)] text-xs font-mono text-[#8A857B]">
+        <div className="md:hidden border-t border-editorial-border bg-editorial-bg px-6 py-8 flex flex-col gap-6">
+          <div className="flex items-center gap-2 mb-2 pb-4 border-b border-editorial-border/60 text-xs font-mono text-editorial-muted">
             <span
               className={`w-2 h-2 rounded-full ${
-                personalInfo.isAvailableForWork ? 'bg-emerald-400' : 'bg-[#8A857B]'
+                personalInfo.isAvailableForWork ? 'bg-editorial-accent' : 'bg-editorial-muted'
               }`}
             />
             <span>
@@ -161,12 +161,12 @@ export const Navbar: React.FC = () => {
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
-              className="flex items-baseline justify-between text-left py-2 border-b border-[rgba(236,231,221,0.06)] group"
+              className="flex items-baseline justify-between text-left py-2 border-b border-editorial-border/40 group"
             >
-              <span className="font-serif text-2xl tracking-tight text-[#ECE7DD] group-hover:text-[#FF4B2B] transition-colors">
+              <span className="font-serif text-2xl tracking-tight text-editorial-text group-hover:text-editorial-accent transition-colors">
                 {item.label}
               </span>
-              <span className="font-mono text-xs text-[#8A857B] group-hover:text-[#FF4B2B]">
+              <span className="font-mono text-xs text-editorial-muted group-hover:text-editorial-accent">
                 {item.number}
               </span>
             </button>
@@ -176,7 +176,7 @@ export const Navbar: React.FC = () => {
             href={personalInfo.resumeDownloadUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 text-center py-3 text-xs font-mono uppercase tracking-widest border border-[#FF4B2B] text-[#FF4B2B] hover:bg-[#FF4B2B] hover:text-[#0F0E0C] transition-colors"
+            className="mt-2 text-center py-3 text-xs font-mono uppercase tracking-widest border border-editorial-accent text-editorial-accent hover:bg-editorial-accent hover:text-editorial-bg transition-colors"
           >
             Download Resume
           </a>

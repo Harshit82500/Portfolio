@@ -37,7 +37,7 @@ export const Button: React.FC<ButtonProps> = ({
     setPos({ x: 0, y: 0 });
   };
 
-  const baseStyles = 'inline-flex items-center justify-center font-mono uppercase tracking-widest text-xs transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#FF4B2B]';
+  const baseStyles = 'inline-flex items-center justify-center font-mono uppercase tracking-widest text-xs transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-editorial-accent';
 
   const sizeStyles = {
     sm: 'px-3.5 py-1.5 text-[11px] gap-1.5',
@@ -46,9 +46,9 @@ export const Button: React.FC<ButtonProps> = ({
   }[size];
 
   const variantStyles = {
-    primary: 'bg-[#FF4B2B] text-[#0F0E0C] font-semibold hover:bg-[#FF6447]',
-    outline: 'border border-[rgba(236,231,221,0.2)] text-[#ECE7DD] hover:border-[#ECE7DD] bg-transparent',
-    ghost: 'text-[#8A857B] hover:text-[#ECE7DD] bg-transparent p-0',
+    primary: 'bg-editorial-accent text-editorial-bg font-semibold hover:bg-editorial-accent-hover',
+    outline: 'border border-editorial-border text-editorial-text hover:border-editorial-accent hover:text-editorial-accent bg-transparent',
+    ghost: 'text-editorial-muted hover:text-editorial-text bg-transparent p-0',
   }[variant];
 
   return (

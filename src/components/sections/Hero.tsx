@@ -14,14 +14,14 @@ export const Hero: React.FC = () => {
     <section
       id="hero"
       aria-label="Hero Overview"
-      className="relative min-h-[85vh] flex flex-col justify-between pt-12 pb-16 border-b border-[rgba(236,231,221,0.12)] overflow-hidden"
+      className="relative min-h-[85vh] flex flex-col justify-between pt-12 pb-16 border-b border-editorial-border overflow-hidden"
     >
       {/* Locomotive Parallax Background Ghost Monogram */}
       <div
         data-scroll
         data-scroll-speed="-2.5"
         aria-hidden="true"
-        className="pointer-events-none absolute -top-12 -right-10 font-serif italic text-[22vw] text-[#ECE7DD]/[0.025] select-none leading-none z-0 select-none"
+        className="pointer-events-none absolute -top-12 -right-10 font-serif italic text-[22vw] text-editorial-text/[0.025] select-none leading-none z-0 select-none"
       >
         HV
       </div>
@@ -36,15 +36,15 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-wrap items-center gap-3 mb-8"
           >
-            <span className="w-2 h-2 rounded-full bg-[#FF4B2B]" />
-            <span className="font-mono text-xs uppercase tracking-widest text-[#8A857B]">
+            <span className="w-2 h-2 rounded-full bg-editorial-accent" />
+            <span className="font-mono text-xs uppercase tracking-widest text-editorial-muted">
               {personalInfo.staticRoleLine}
             </span>
-            <span className="text-[rgba(236,231,221,0.2)]">/</span>
-            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full border border-[rgba(236,231,221,0.12)] bg-[#141311] text-[10px] font-mono tracking-wider uppercase text-[#8A857B]">
+            <span className="text-editorial-border">/</span>
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full border border-editorial-border bg-editorial-surface text-[10px] font-mono tracking-wider uppercase text-editorial-muted">
               <span
                 className={`w-1.5 h-1.5 rounded-full ${
-                  personalInfo.isAvailableForWork ? 'bg-emerald-400 animate-pulse' : 'bg-[#8A857B]'
+                  personalInfo.isAvailableForWork ? 'bg-editorial-accent animate-pulse' : 'bg-editorial-muted'
                 }`}
               />
               <span>
@@ -59,7 +59,7 @@ export const Hero: React.FC = () => {
           <h1
             data-scroll
             data-scroll-speed="0.6"
-            className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] text-[#ECE7DD] tracking-tight leading-[1.03] max-w-4xl loco-skew"
+            className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] text-editorial-text tracking-tight leading-[1.03] max-w-4xl loco-skew"
           >
             <TextReveal as="span" delay={0.1}>
               {personalInfo.heroHeadline}
@@ -71,7 +71,7 @@ export const Hero: React.FC = () => {
             initial={prefersReducedMotion ? false : { opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-8 text-base sm:text-lg text-[#8A857B] font-sans max-w-2xl leading-relaxed"
+            className="mt-8 text-base sm:text-lg text-editorial-muted font-sans max-w-2xl leading-relaxed"
           >
             {personalInfo.heroDescription}
           </motion.p>
@@ -112,9 +112,9 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
             data-scroll
             data-scroll-speed="-0.6"
-            className="w-full max-w-[320px] aspect-[4/5] border border-[rgba(236,231,221,0.14)] bg-[#141311] p-3 relative group loco-skew"
+            className="w-full max-w-[320px] aspect-[4/5] border border-editorial-border bg-editorial-surface p-3 relative group loco-skew"
           >
-            <div className="w-full h-full border border-[rgba(236,231,221,0.08)] bg-[#0F0E0C] overflow-hidden relative flex flex-col items-center justify-center">
+            <div className="w-full h-full border border-editorial-border/60 bg-editorial-bg overflow-hidden relative flex flex-col items-center justify-center">
               {!imageError ? (
                 <img
                   src={personalInfo.photoUrl}
@@ -127,20 +127,20 @@ export const Hero: React.FC = () => {
                 />
               ) : (
                 /* Neutral Editorial Monogram Fallback */
-                <div className="w-full h-full flex flex-col items-center justify-between p-6 text-center select-none bg-[#12110F]">
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-[#8A857B]">
+                <div className="w-full h-full flex flex-col items-center justify-between p-6 text-center select-none bg-editorial-surface/80">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-editorial-muted">
                     PORTRAIT FRAME
                   </span>
                   <div className="flex flex-col items-center">
-                    <span className="font-serif italic text-7xl text-[#ECE7DD]/80">
+                    <span className="font-serif italic text-7xl text-editorial-text/80">
                       {personalInfo.monogram}
                     </span>
-                    <span className="w-6 h-[1px] bg-[#FF4B2B] mt-2 mb-3" />
-                    <span className="font-mono text-xs text-[#8A857B] uppercase tracking-wider">
+                    <span className="w-6 h-[1px] bg-editorial-accent mt-2 mb-3" />
+                    <span className="font-mono text-xs text-editorial-muted uppercase tracking-wider">
                       {personalInfo.fullName}
                     </span>
                   </div>
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-[#5A564F]">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-editorial-dim">
                     [ADD: public/images/harshit.jpg]
                   </span>
                 </div>
@@ -148,9 +148,9 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Frame metadata label */}
-            <div className="flex items-center justify-between mt-3 text-[10px] font-mono uppercase tracking-widest text-[#8A857B]">
+            <div className="flex items-center justify-between mt-3 text-[10px] font-mono uppercase tracking-widest text-editorial-muted">
               <span>FIG. 01 / PORTRAIT</span>
-              <span className="text-[#FF4B2B]">IND</span>
+              <span className="text-editorial-accent">IND</span>
             </div>
           </motion.div>
         </div>
@@ -163,18 +163,18 @@ export const Hero: React.FC = () => {
         initial={prefersReducedMotion ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="mt-16 pt-6 border-t border-[rgba(236,231,221,0.08)] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#8A857B]"
+        className="mt-16 pt-6 border-t border-editorial-border/60 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-editorial-muted"
       >
         <div className="flex items-center gap-6">
           <span>00 / INTRO</span>
-          <span className="hidden sm:inline text-[rgba(236,231,221,0.2)]">•</span>
+          <span className="hidden sm:inline text-editorial-border">•</span>
           <span className="hidden sm:inline">DATA ANALYST & APPLIED ML</span>
-          <span className="hidden md:inline text-[rgba(236,231,221,0.2)]">•</span>
-          <span className="hidden md:inline text-[#FF4B2B]/90">ENGINE: LOCOMOTIVE V5</span>
+          <span className="hidden md:inline text-editorial-border">•</span>
+          <span className="hidden md:inline text-editorial-accent/90">ENGINE: LOCOMOTIVE V5</span>
         </div>
         <div className="flex items-center gap-2">
           <span>SCROLL FOR ANALYSIS</span>
-          <span className="text-[#FF4B2B] animate-bounce">↓</span>
+          <span className="text-editorial-accent animate-bounce">↓</span>
         </div>
       </motion.div>
     </section>

@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#0F0E0C" />
-  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="rgba(236,231,221,0.14)" stroke-width="1" />
+  <rect width="1200" height="630" fill="#0B1210" />
+  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="rgba(232,228,216,0.14)" stroke-width="1" />
   
-  <text x="90" y="160" font-family="'Courier New', monospace" font-size="16" letter-spacing="4" fill="#FF4B2B">PORTFOLIO DOSSIER / DATA &amp; APPLIED ML</text>
+  <text x="90" y="160" font-family="'Courier New', monospace" font-size="16" letter-spacing="4" fill="#C9F27A">PORTFOLIO DOSSIER / DATA &amp; APPLIED ML</text>
   
-  <text x="90" y="270" font-family="Georgia, serif" font-size="72" font-style="italic" fill="#ECE7DD">Harshit Vishwakarma</text>
+  <text x="90" y="270" font-family="Georgia, serif" font-size="72" font-style="italic" fill="#E8E4D8">Harshit Vishwakarma</text>
   
-  <line x1="90" y1="320" x2="1110" y2="320" stroke="rgba(236,231,221,0.12)" stroke-width="1" />
+  <line x1="90" y1="320" x2="1110" y2="320" stroke="rgba(232,228,216,0.12)" stroke-width="1" />
   
-  <text x="90" y="380" font-family="'Segoe UI', Helvetica, sans-serif" font-size="28" fill="#8A857B">Data Analyst / Data Scientist / Machine Learning</text>
-  <text x="90" y="425" font-family="'Segoe UI', Helvetica, sans-serif" font-size="20" fill="#5A564F">Grounded in empirical verification, statistical clarity &amp; clean engineering architecture.</text>
+  <text x="90" y="380" font-family="'Segoe UI', Helvetica, sans-serif" font-size="28" fill="#7F8C84">Data Analyst / Data Scientist / Machine Learning</text>
+  <text x="90" y="425" font-family="'Segoe UI', Helvetica, sans-serif" font-size="20" fill="#5A665E">Grounded in empirical verification, statistical clarity &amp; clean engineering architecture.</text>
   
-  <text x="90" y="520" font-family="'Courier New', monospace" font-size="14" fill="#8A857B">github.com/Harshit82500  •  harshitvishwakarma6264@gmail.com</text>
+  <text x="90" y="520" font-family="'Courier New', monospace" font-size="14" fill="#7F8C84">github.com/Harshit82500  •  harshitvishwakarma6264@gmail.com</text>
   
-  <circle cx="1060" cy="515" r="5" fill="#FF4B2B" />
+  <circle cx="1060" cy="515" r="5" fill="#C9F27A" />
 </svg>

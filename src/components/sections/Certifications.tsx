@@ -22,25 +22,25 @@ export const Certifications: React.FC = () => {
               key={cert.id}
               data-scroll
               data-scroll-speed={index % 2 === 0 ? "0.15" : "-0.15"}
-              className="p-6 border border-[rgba(236,231,221,0.12)] bg-[#141311] flex flex-col justify-between min-h-[220px] group hover:border-[rgba(236,231,221,0.28)] transition-all loco-skew"
+              className="p-6 border border-editorial-border bg-editorial-surface flex flex-col justify-between min-h-[220px] group hover:border-editorial-accent/40 transition-all loco-skew"
             >
               <div>
-                <div className="flex items-center justify-between mb-3 text-xs font-mono text-[#8A857B]">
+                <div className="flex items-center justify-between mb-3 text-xs font-mono text-editorial-muted">
                   <span>{cert.issueDate}</span>
                   <div className="flex items-center gap-1.5">
-                    <span className="flex items-center gap-1 text-emerald-400">
+                    <span className="flex items-center gap-1 text-editorial-accent">
                       <CheckCircle2 size={12} />
                       <span>Verified Credential</span>
                     </span>
                   </div>
                 </div>
 
-                <h3 className="font-serif text-2xl text-[#ECE7DD] mb-1 group-hover:text-[#FF4B2B] transition-colors">
+                <h3 className="font-serif text-2xl text-editorial-text mb-1 group-hover:text-editorial-accent transition-colors">
                   {cert.name}
                 </h3>
 
-                <p className="font-mono text-xs text-[#8A857B] uppercase tracking-wider mb-4">
-                  Issuer: <span className="text-[#ECE7DD]">{cert.issuer}</span>
+                <p className="font-mono text-xs text-editorial-muted uppercase tracking-wider mb-4">
+                  Issuer: <span className="text-editorial-text">{cert.issuer}</span>
                 </p>
 
                 <div className="flex flex-wrap gap-1.5 mb-6">
@@ -52,9 +52,9 @@ export const Certifications: React.FC = () => {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[rgba(236,231,221,0.06)] flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
-                <div className="flex items-center gap-1.5 text-[#8A857B]">
-                  <ShieldCheck size={13} className="text-[#FF4B2B]" />
+              <div className="pt-4 border-t border-editorial-border/60 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+                <div className="flex items-center gap-1.5 text-editorial-muted">
+                  <ShieldCheck size={13} className="text-editorial-accent" />
                   <span>
                     {cert.credentialId
                       ? `ID: ${cert.credentialId}`

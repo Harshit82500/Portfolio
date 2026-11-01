@@ -11,7 +11,7 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="relative min-h-screen bg-[#0F0E0C] text-[#ECE7DD] flex flex-col selection:bg-[#FF4B2B] selection:text-[#0F0E0C]">
+    <div className="relative min-h-screen bg-editorial-bg text-editorial-text flex flex-col selection:bg-editorial-accent selection:text-editorial-bg">
       {/* Accessibility Skip Link */}
       <SkipToContent />
 

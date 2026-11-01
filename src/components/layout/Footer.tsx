@@ -29,15 +29,15 @@ export const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer className="border-t border-[rgba(236,231,221,0.12)] bg-[#0F0E0C] text-[#8A857B] text-xs font-mono pt-16 pb-12 mt-32 relative overflow-hidden">
+    <footer className="border-t border-editorial-border bg-editorial-bg text-editorial-muted text-xs font-mono pt-16 pb-12 mt-32 relative overflow-hidden">
       {/* Locomotive Grand Curtain Reveal Typography */}
       <div
         data-scroll
         data-scroll-speed="-2"
         aria-hidden="true"
-        className="w-full overflow-hidden select-none border-b border-[rgba(236,231,221,0.06)] pb-8 mb-12 text-center"
+        className="w-full overflow-hidden select-none border-b border-editorial-border/40 pb-8 mb-12 text-center"
       >
-        <span className="font-serif italic text-5xl sm:text-7xl lg:text-[9vw] text-[#ECE7DD]/[0.04] tracking-tight leading-none uppercase block">
+        <span className="font-serif italic text-5xl sm:text-7xl lg:text-[9vw] text-editorial-text/[0.04] tracking-tight leading-none uppercase block">
           HARSHIT VISHWAKARMA
         </span>
       </div>
@@ -47,38 +47,38 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           <div className="md:col-span-5 flex flex-col gap-3">
             <div className="flex items-center gap-2">
-              <span className="font-serif italic text-2xl text-[#ECE7DD]">
+              <span className="font-serif italic text-2xl text-editorial-text">
                 {personalInfo.fullName}
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF4B2B]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-editorial-accent" />
             </div>
-            <p className="text-sm font-sans text-[#8A857B] leading-relaxed max-w-sm">
+            <p className="text-sm font-sans text-editorial-muted leading-relaxed max-w-sm">
               Data Analyst & Machine Learning Developer. Focused on calibrated models, statistical honesty, and clean architecture.
             </p>
           </div>
 
           <div className="md:col-span-4 flex flex-col gap-2">
-            <span className="text-[#ECE7DD] uppercase tracking-widest text-[11px]">
+            <span className="text-editorial-text uppercase tracking-widest text-[11px]">
               System Colophon
             </span>
-            <p className="text-[11px] leading-relaxed text-[#8A857B]">
+            <p className="text-[11px] leading-relaxed text-editorial-muted">
               Engineered with React 19, TypeScript, Tailwind CSS, Motion, and Locomotive Scroll v5. Typeset in Instrument Serif and Inter. Zero tracking telemetry.
             </p>
           </div>
 
           <div className="md:col-span-3 flex flex-col gap-3 md:items-end">
             <div className="flex flex-col md:items-end">
-              <span className="text-[#ECE7DD] uppercase tracking-widest text-[11px]">
+              <span className="text-editorial-text uppercase tracking-widest text-[11px]">
                 Local Time
               </span>
-              <span className="text-sm text-[#ECE7DD] font-mono mt-1">
+              <span className="text-sm text-editorial-text font-mono mt-1">
                 {timeStr ? `${timeStr} IST (UTC+5:30)` : 'CALCULATING...'}
               </span>
             </div>
 
             <button
               onClick={() => scrollTo(0)}
-              className="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 border border-[rgba(236,231,221,0.14)] text-[#ECE7DD] hover:border-[#FF4B2B] hover:text-[#FF4B2B] uppercase tracking-widest text-[11px] transition-colors cursor-pointer"
+              className="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 border border-editorial-border text-editorial-text hover:border-editorial-accent hover:text-editorial-accent uppercase tracking-widest text-[11px] transition-colors cursor-pointer"
             >
               <span>Back to Top</span>
               <ArrowUp size={12} />
@@ -87,7 +87,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Tier: Copyright & Quick Links */}
-        <div className="pt-8 border-t border-[rgba(236,231,221,0.08)] flex flex-wrap items-center justify-between gap-4 text-[11px]">
+        <div className="pt-8 border-t border-editorial-border/60 flex flex-wrap items-center justify-between gap-4 text-[11px]">
           <div>
             © 2026 {personalInfo.fullName}. All rights reserved.
           </div>
@@ -97,9 +97,9 @@ export const Footer: React.FC = () => {
               href={personalInfo.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#ECE7DD] transition-colors flex items-center gap-1.5"
+              className="hover:text-editorial-text transition-colors flex items-center gap-1.5"
             >
-              <SiGithub size={13} color="#8A857B" />
+              <SiGithub size={13} color="currentColor" />
               <span>GitHub</span>
             </a>
             {personalInfo.linkedinUrl && !personalInfo.linkedinUrl.startsWith('[ADD') && (
@@ -107,9 +107,9 @@ export const Footer: React.FC = () => {
                 href={personalInfo.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#ECE7DD] transition-colors flex items-center gap-1.5"
+                className="hover:text-editorial-text transition-colors flex items-center gap-1.5"
               >
-                <DeviconLinkedIn size={13} color="#8A857B" />
+                <DeviconLinkedIn size={13} color="currentColor" />
                 <span>LinkedIn</span>
               </a>
             )}
@@ -117,7 +117,7 @@ export const Footer: React.FC = () => {
               href={personalInfo.resumeDownloadUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#ECE7DD] transition-colors"
+              className="hover:text-editorial-text transition-colors"
             >
               Resume
             </a>

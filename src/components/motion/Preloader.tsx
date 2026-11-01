@@ -75,16 +75,16 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           setIsDismissed(true);
           onComplete();
         }}
-        className="fixed inset-0 z-[100000] bg-[#0F0E0C] text-[#ECE7DD] flex flex-col justify-between p-6 sm:p-12 cursor-pointer select-none"
+        className="fixed inset-0 z-[100000] bg-editorial-bg text-editorial-text flex flex-col justify-between p-6 sm:p-12 cursor-pointer select-none"
         aria-label="Portfolio Loading Screen. Click to skip."
       >
         {/* Top bar */}
-        <div className="flex items-center justify-between text-xs font-mono text-[#8A857B]">
+        <div className="flex items-center justify-between text-xs font-mono text-editorial-muted">
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FF4B2B] animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-editorial-accent animate-pulse" />
             <span>CALIBRATING ARCHITECTURE</span>
           </div>
-          <span className="hover:text-[#ECE7DD] transition-colors">
+          <span className="hover:text-editorial-text transition-colors">
             CLICK OR ESC TO SKIP ✕
           </span>
         </div>
@@ -96,7 +96,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
               initial={{ y: '100%', opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="font-serif italic text-4xl sm:text-6xl md:text-7xl text-[#ECE7DD] tracking-tight text-center"
+              className="font-serif italic text-4xl sm:text-6xl md:text-7xl text-editorial-text tracking-tight text-center"
             >
               {personalInfo.fullName}
             </motion.h1>
@@ -107,7 +107,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
               initial={{ y: '100%', opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="font-mono text-xs sm:text-sm text-[#8A857B] uppercase tracking-widest text-center"
+              className="font-mono text-xs sm:text-sm text-editorial-muted uppercase tracking-widest text-center"
             >
               {personalInfo.staticRoleLine}
             </motion.p>
@@ -117,12 +117,12 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
         {/* Bottom bar: Progress Counter & Hairline Meter */}
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between text-xs font-mono">
-            <span className="text-[#8A857B]">SYSTEM INITIALIZATION</span>
-            <span className="text-[#ECE7DD] font-medium">{progress}%</span>
+            <span className="text-editorial-muted">SYSTEM INITIALIZATION</span>
+            <span className="text-editorial-text font-medium">{progress}%</span>
           </div>
-          <div className="w-full h-[1px] bg-[rgba(236,231,221,0.12)] relative overflow-hidden">
+          <div className="w-full h-[1px] bg-editorial-border relative overflow-hidden">
             <motion.div
-              className="absolute top-0 bottom-0 left-0 bg-[#FF4B2B]"
+              className="absolute top-0 bottom-0 left-0 bg-editorial-accent"
               style={{ width: `${progress}%` }}
               transition={{ ease: 'linear' }}
             />

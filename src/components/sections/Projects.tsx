@@ -31,15 +31,15 @@ export const Projects: React.FC = () => {
       />
 
       {/* Category Filter Pills */}
-      <div className="flex flex-wrap items-center gap-2 mb-12 pb-4 border-b border-[rgba(236,231,221,0.08)]">
+      <div className="flex flex-wrap items-center gap-2 mb-12 pb-4 border-b border-editorial-border/60">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
             className={`px-4 py-1.5 text-xs font-mono uppercase tracking-widest transition-all duration-200 cursor-pointer ${
               activeCategory === cat
-                ? 'bg-[#ECE7DD] text-[#0F0E0C] font-semibold'
-                : 'border border-[rgba(236,231,221,0.12)] text-[#8A857B] hover:text-[#ECE7DD] hover:border-[rgba(236,231,221,0.3)] bg-transparent'
+                ? 'bg-editorial-text text-editorial-bg font-semibold'
+                : 'border border-editorial-border text-editorial-muted hover:text-editorial-text hover:border-editorial-accent/40 bg-transparent'
             }`}
           >
             {cat}
@@ -60,14 +60,14 @@ export const Projects: React.FC = () => {
                 top: `calc(5.5rem + ${index * 1.5}rem)`,
                 zIndex: index + 10,
               }}
-              className="loco-deck-card loco-skew border border-[rgba(236,231,221,0.14)] bg-[#141311] hover:border-[rgba(236,231,221,0.32)] shadow-[0_20px_50px_rgba(0,0,0,0.85)] p-6 sm:p-8 lg:p-12 mb-12 relative overflow-hidden group"
+              className="loco-deck-card loco-skew border border-editorial-border bg-editorial-surface hover:border-editorial-accent/40 p-6 sm:p-8 lg:p-12 mb-12 relative overflow-hidden group"
             >
               {/* Locomotive Parallax Background Index */}
               <span
                 data-scroll
                 data-scroll-speed="-0.5"
                 aria-hidden="true"
-                className="pointer-events-none absolute -top-6 -right-4 font-serif italic text-8xl sm:text-9xl text-[#ECE7DD]/[0.03] select-none z-0"
+                className="pointer-events-none absolute -top-6 -right-4 font-serif italic text-8xl sm:text-9xl text-editorial-text/[0.03] select-none z-0"
               >
                 0{index + 1}
               </span>
@@ -78,10 +78,10 @@ export const Projects: React.FC = () => {
                   <div>
                     {/* Header Metadata */}
                     <div className="flex flex-wrap items-center gap-3 mb-4">
-                      <span className="font-mono text-xs text-[#FF4B2B] tracking-widest uppercase">
+                      <span className="font-mono text-xs text-editorial-accent tracking-widest uppercase">
                         PROJECT 0{index + 1}
                       </span>
-                      <span className="text-[rgba(236,231,221,0.2)]">/</span>
+                      <span className="text-editorial-border">/</span>
                       <Badge variant="subtle" className="text-[10px]">
                         {project.category}
                       </Badge>
@@ -90,7 +90,7 @@ export const Projects: React.FC = () => {
                           {project.statusLabel || 'In Progress'}
                         </Badge>
                       )}
-                      <span className="font-mono text-xs text-[#8A857B] ml-auto">
+                      <span className="font-mono text-xs text-editorial-muted ml-auto">
                         {project.dateRange}
                       </span>
                     </div>
@@ -100,39 +100,39 @@ export const Projects: React.FC = () => {
                       to={`/project/${project.id}`}
                       className="group/link inline-block focus-visible:outline-none"
                     >
-                      <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#ECE7DD] tracking-tight group-hover/link:text-[#FF4B2B] transition-colors duration-200">
+                      <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-editorial-text tracking-tight group-hover/link:text-editorial-accent transition-colors duration-200">
                         {project.title}
                       </h3>
                     </Link>
 
                     {/* Subtitle */}
-                    <p className="font-serif italic text-lg sm:text-xl text-[#8A857B] mt-1 mb-6">
+                    <p className="font-serif italic text-lg sm:text-xl text-editorial-muted mt-1 mb-6">
                       {project.subtitle}
                     </p>
 
                     {/* Summary */}
-                    <p className="text-sm sm:text-base text-[#8A857B] font-sans leading-relaxed mb-6">
+                    <p className="text-sm sm:text-base text-editorial-muted font-sans leading-relaxed mb-6">
                       {project.summary}
                     </p>
 
                     {/* Verified Metrics or Explicit Placeholder */}
-                    <div className="my-6 p-4 border border-[rgba(236,231,221,0.08)] bg-[#0F0E0C]">
-                      <span className="font-mono text-[10px] uppercase tracking-widest text-[#8A857B] block mb-3">
+                    <div className="my-6 p-4 border border-editorial-border/60 bg-editorial-bg">
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-editorial-muted block mb-3">
                         {project.verifiedMetrics ? 'Empirical Benchmarks (Verified)' : 'Empirical Benchmarks'}
                       </span>
                       {project.verifiedMetrics ? (
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                           {project.verifiedMetrics.map((m) => (
                             <div key={m.label} className="flex flex-col">
-                              <span className="font-serif text-2xl text-[#ECE7DD]">{m.value}</span>
-                              <span className="font-mono text-[10px] text-[#8A857B] uppercase mt-0.5">
+                              <span className="font-serif text-2xl text-editorial-text">{m.value}</span>
+                              <span className="font-mono text-[10px] text-editorial-muted uppercase mt-0.5">
                                 {m.label}
                               </span>
                             </div>
                           ))}
                         </div>
                       ) : (
-                        <p className="font-mono text-xs text-[#FF4B2B]/90">
+                        <p className="font-mono text-xs text-editorial-accent/90">
                           {project.caseStudyPlaceholder || '[ADD: result after I provide it]'}
                         </p>
                       )}
@@ -143,7 +143,7 @@ export const Projects: React.FC = () => {
                       {project.techStack.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2.5 py-0.5 text-[11px] font-mono border border-[rgba(236,231,221,0.08)] text-[#8A857B] bg-[#12110F]"
+                          className="px-2.5 py-0.5 text-[11px] font-mono border border-editorial-border/60 text-editorial-muted bg-editorial-surface"
                         >
                           {tech}
                         </span>
@@ -151,13 +151,13 @@ export const Projects: React.FC = () => {
                     </div>
 
                     {/* Team & Role Credits */}
-                    <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-[rgba(236,231,221,0.08)] text-xs font-mono text-[#8A857B]">
+                    <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-editorial-border/60 text-xs font-mono text-editorial-muted">
                       <div>
-                        <span className="text-[#ECE7DD]">Role:</span> {project.role}
+                        <span className="text-editorial-text">Role:</span> {project.role}
                       </div>
                       {project.teamMembers && (
                         <div className="flex items-center gap-1.5">
-                          <Users size={12} className="text-[#FF4B2B]" />
+                          <Users size={12} className="text-editorial-accent" />
                           <span>Team:</span> {project.teamMembers.join(', ')}
                         </div>
                       )}
@@ -165,10 +165,10 @@ export const Projects: React.FC = () => {
                   </div>
 
                   {/* Actions / Links */}
-                  <div className="flex flex-wrap items-center gap-4 mt-8 pt-4 border-t border-[rgba(236,231,221,0.08)]">
+                  <div className="flex flex-wrap items-center gap-4 mt-8 pt-4 border-t border-editorial-border/60">
                     <Link
                       to={`/project/${project.id}`}
-                      className="inline-flex items-center gap-2 px-4 py-2 border border-[#FF4B2B] text-[#FF4B2B] hover:bg-[#FF4B2B] hover:text-[#0F0E0C] text-xs font-mono uppercase tracking-widest transition-colors duration-200"
+                      className="inline-flex items-center gap-2 px-4 py-2 border border-editorial-accent text-editorial-accent hover:bg-editorial-accent hover:text-editorial-bg text-xs font-mono uppercase tracking-widest transition-colors duration-200"
                     >
                       <span>Read Case Study</span>
                       <ArrowUpRight size={14} />
@@ -179,9 +179,9 @@ export const Projects: React.FC = () => {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-[#8A857B] hover:text-[#ECE7DD] transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-editorial-muted hover:text-editorial-text transition-colors"
                       >
-                        <SiGithub size={13} color="#8A857B" />
+                        <SiGithub size={13} color="currentColor" />
                         <span>Repository</span>
                       </a>
                     )}
@@ -191,7 +191,7 @@ export const Projects: React.FC = () => {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-[#8A857B] hover:text-[#ECE7DD] transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-editorial-muted hover:text-editorial-text transition-colors"
                       >
                         <ExternalLink size={14} />
                         <span>Live Demo</span>
@@ -202,7 +202,7 @@ export const Projects: React.FC = () => {
 
                 {/* Right Side: Image Panel with Locomotive Parallax Window */}
                 <div className="lg:col-span-5 flex flex-col justify-center">
-                  <div className="w-full aspect-[16/10] border border-[rgba(236,231,221,0.12)] bg-[#0F0E0C] overflow-hidden relative group/img">
+                  <div className="w-full aspect-[16/10] border border-editorial-border bg-editorial-bg overflow-hidden relative group/img">
                     {!hasImageError ? (
                       <div className="w-full h-full overflow-hidden">
                         <img
@@ -219,20 +219,20 @@ export const Projects: React.FC = () => {
                       </div>
                     ) : (
                       /* Clean Typographic Minimalist Editorial Fallback */
-                      <div className="w-full h-full p-8 flex flex-col justify-between bg-[#11100E] border border-[rgba(236,231,221,0.06)] select-none">
-                        <div className="flex items-center justify-between font-mono text-[10px] uppercase text-[#8A857B]">
+                      <div className="w-full h-full p-8 flex flex-col justify-between bg-editorial-surface border border-editorial-border/40 select-none">
+                        <div className="flex items-center justify-between font-mono text-[10px] uppercase text-editorial-muted">
                           <span>CASE STUDY ARCHIVE</span>
-                          <span className="text-[#FF4B2B]">SYS-0{index + 1}</span>
+                          <span className="text-editorial-accent">SYS-0{index + 1}</span>
                         </div>
                         <div className="flex flex-col">
-                          <span className="font-serif italic text-3xl sm:text-4xl text-[#ECE7DD]/90 tracking-tight">
+                          <span className="font-serif italic text-3xl sm:text-4xl text-editorial-text/90 tracking-tight">
                             {project.title}
                           </span>
-                          <span className="font-mono text-xs text-[#8A857B] mt-1 uppercase">
+                          <span className="font-mono text-xs text-editorial-muted mt-1 uppercase">
                             {project.category}
                           </span>
                         </div>
-                        <div className="flex items-center justify-between text-[10px] font-mono text-[#5A564F]">
+                        <div className="flex items-center justify-between text-[10px] font-mono text-editorial-dim">
                           <span>SCREENSHOT PENDING</span>
                           <span>[ADD: public{project.image}]</span>
                         </div>
