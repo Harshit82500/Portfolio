@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { useScroll } from '../../context/scrollTypes';
 
@@ -16,6 +16,13 @@ export const TextReveal: React.FC<TextRevealProps> = ({
   as: Component = 'span',
 }) => {
   const { prefersReducedMotion } = useScroll();
+  const [failsafeVisible, setFailsafeVisible] = useState(false);
+
+  useEffect(() => {
+    // Failsafe: ensures real content is never left stuck at opacity 0
+    const timer = setTimeout(() => setFailsafeVisible(true), 1200);
+    return () => clearTimeout(timer);
+  }, []);
 
   if (prefersReducedMotion) {
     return <Component className={className}>{children}</Component>;
@@ -29,12 +36,13 @@ export const TextReveal: React.FC<TextRevealProps> = ({
       {words.map((word, i) => (
         <span key={i} className="inline-block overflow-hidden mr-[0.25em] last:mr-0 align-bottom">
           <motion.span
-            initial={{ y: '110%', opacity: 0 }}
+            initial={{ y: 24, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-5% 0px' }}
+            animate={failsafeVisible ? { y: 0, opacity: 1 } : undefined}
+            viewport={{ once: true, margin: '0px 0px -10% 0px' }}
             transition={{
-              duration: 0.7,
-              delay: delay + i * 0.025,
+              duration: 0.55,
+              delay: delay + i * 0.02,
               ease: [0.22, 1, 0.36, 1],
             }}
             className="inline-block"

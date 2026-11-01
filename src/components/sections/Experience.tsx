@@ -29,21 +29,21 @@ export const Experience: React.FC = () => {
       id="experience"
       aria-label="Experience & Trajectory"
       onMouseMove={handleMouseMove}
-      className="scroll-mt-24 -mx-5 sm:-mx-8 lg:-mx-12 px-5 sm:px-8 lg:px-12 py-20 sm:py-28 my-16 sm:my-24 bg-ink-deep text-paper relative overflow-hidden"
+      className="scroll-mt-24 -mx-5 sm:-mx-8 lg:-mx-12 px-5 sm:px-8 lg:px-12 py-[var(--space-section)] bg-ink-deep text-paper relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header (Dark Mode with Faint Watermark) */}
         <SectionHeader
           number="03"
           label="Experience"
-          headline="Chronological trajectory & applied analytics practice."
+          title="Chronological trajectory & applied analytics practice."
           description="Verified internships and practical system implementations. Every milestone is empirically grounded with zero fabricated titles."
           watermark="CAREER"
           dark
         />
 
         {/* Experience Rows */}
-        <div className="flex flex-col border-t border-border-dark mt-8">
+        <div className="flex flex-col mt-[var(--space-header-to-content)]">
           {experienceData.map((item, index) => {
             const isPlaceholder = item.isPlaceholder || item.role.startsWith('[ADD');
 
@@ -52,7 +52,7 @@ export const Experience: React.FC = () => {
                 key={item.id}
                 initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
+                viewport={{ once: true, margin: '0px 0px -10% 0px' }}
                 transition={{
                   duration: 0.5,
                   delay: index * 0.1,

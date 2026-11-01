@@ -16,13 +16,11 @@ export const Certifications: React.FC = () => {
       />
 
       <SectionReveal className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {certificationsData.map((cert, index) => {
+        {certificationsData.map((cert) => {
           return (
             <div
               key={cert.id}
-              data-scroll
-              data-scroll-speed={index % 2 === 0 ? "0.15" : "-0.15"}
-              className="p-6 border border-editorial-border bg-editorial-surface flex flex-col justify-between min-h-[220px] group hover:border-editorial-accent/40 transition-all loco-skew"
+              className="p-6 border border-editorial-border bg-editorial-surface flex flex-col justify-between min-h-[220px] group hover:border-editorial-accent/40 transition-all"
             >
               <div>
                 <div className="flex items-center justify-between mb-3 text-xs font-mono text-editorial-muted">

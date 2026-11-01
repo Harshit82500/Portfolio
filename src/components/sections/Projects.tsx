@@ -38,18 +38,18 @@ export const Projects: React.FC = () => {
   });
 
   return (
-    <section id="projects" aria-label="Selected Works" className="scroll-mt-24 pt-8">
+    <section id="projects" aria-label="Selected Works" className="scroll-mt-24 py-[var(--space-section)]">
       {/* Section Header with Huge Faint Watermark Word */}
       <SectionHeader
         number="01"
         label="Selected Work"
-        headline="Predictive models, analytics systems & browser engines."
+        title="Predictive models, analytics systems & browser engines."
         description="Comprehensive case studies grounded in authentic problem statements, reproducible architectures, and empirical metrics."
         watermark="WORKS"
       />
 
       {/* Filter Tabs as Small Text Toggles with Animated Underline */}
-      <div className="flex flex-wrap items-center gap-6 sm:gap-8 mb-12 pb-4 border-b border-border-light text-xs font-sans uppercase tracking-wider font-semibold">
+      <div className="flex flex-wrap items-center gap-6 sm:gap-8 mt-[var(--space-header-to-content)] mb-[var(--space-block)] pb-4 border-b border-border-light text-xs font-sans uppercase tracking-wider font-semibold">
         {filterTabs.map((tab) => {
           const isActive = activeFilter === tab;
           return (

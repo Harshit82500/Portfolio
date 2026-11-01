@@ -18,9 +18,7 @@ export const About: React.FC = () => {
         {/* Narrative Columns (8 cols) */}
         <div className="lg:col-span-8 flex flex-col gap-6 text-editorial-text font-sans leading-relaxed text-base sm:text-lg">
           <p
-            data-scroll
-            data-scroll-speed="0.3"
-            className="font-serif italic text-2xl sm:text-3xl text-editorial-text leading-snug border-l-2 border-editorial-accent pl-6 my-2 loco-skew"
+            className="font-serif italic text-2xl sm:text-3xl text-editorial-text leading-snug border-l-2 border-editorial-accent pl-6 my-2"
           >
             "Real-world data is inherently noisy and imperfect. The goal isn't to force an illusion of perfection, but to measure and illuminate reality with utmost precision."
           </p>

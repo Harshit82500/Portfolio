@@ -9,7 +9,7 @@ import { Contact } from '../components/sections/Contact';
 
 export const Home: React.FC = () => {
   return (
-    <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col gap-20 sm:gap-28 lg:gap-36">
+    <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col">
       {/* 00 / Hero Overview */}
       <Hero />
 
